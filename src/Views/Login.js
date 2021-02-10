@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import "./Login.css"
 
 function Login() {
     return (
@@ -36,10 +35,10 @@ function Login() {
 
                             </div>
                             <div id="right" className="col-5">
-                                <h3>Bienvenido</h3>
-                                <h5>Para iniciar sesión debe ingresar su usuario y contraseña.</h5>
-                                <h6>No posees una cuenta de Spotify?</h6>
-                                <Link id="register" to="https://www.spotify.com/cl/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2F" className="btn btn-dark">Registrarse en Spotify</Link>
+                                <h3><strong>Bienvenido</strong></h3>
+                                <h5><strong>Para iniciar sesión debe ingresar su usuario y contraseña.</strong></h5>
+                                <h6><strong>No posees una cuenta de Spotify?</strong></h6>
+                                <Link id="register" to="https://www.spotify.com/cl/signup/?forward_url=https%3A%2F%2Fopen.spotify.com%2F" className="btn btn-dark"><strong>Registrarse en Spotify</strong></Link>
                             </div>
                         </div>
                     </div>

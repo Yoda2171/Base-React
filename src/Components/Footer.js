@@ -3,9 +3,9 @@ import React from 'react'
 function Footer() {
     return (
         <div>
-            <footer className="py-5 bg-info fixed-bottom">
+            <footer className="py-3 bg-success">
                 <div className="container">
-                    <p className="m-0 text-center text-white small">Copyright &copy; MPJ 2021</p>
+                    <p className="m-0 text-center text-white small"><strong>Copyright &copy; MPJ 2021</strong></p>
                 </div>
 
             </footer>
