@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
@@ -25,7 +25,7 @@ function App() {
               <Route exact path="/profile/id" component={Profile}  />
               <Route exact path="/chat" component={Chat}  />
               <Route exact path ="/friends" component={Friends} />
-              <Route exact path="/feed" component-={Feed} />
+              <Route exact path="/feed" component={Feed} />
               <Route exact path="/login" component={Login}  />
               <Route exact path="/" component={Home}  />
               <Route component={NotFound}  />
