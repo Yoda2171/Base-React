@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
@@ -9,7 +9,6 @@ import Friends from './Views/Friends';
 import Home from './Views/Home';
 import Login from './Views/Login';
 import NotFound from './Views/NotFound';
-
 import Profile from './Views/Profile';
 
 
