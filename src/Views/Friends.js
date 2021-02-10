@@ -8,4 +8,4 @@ function Friends() {
     )
 }
 
-export default Friends
+export default Friends;
