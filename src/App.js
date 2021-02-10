@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
+import Chat from './Views/Chat';
+import Feed from './Views/Feed';
+import Friends from './Views/Friends';
+import Home from './Views/Home';
+import Login from './Views/Login';
+import NotFound from './Views/NotFound';
+
+import Profile from './Views/Profile';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <div>
+        <BrowserRouter>
+          <div className="container-fluid">
+            <Navbar />
+            <Switch>
+
+              <Route exact path="/profile/id" component={Profile}  />
+              <Route exact path="/chat" component={Chat}  />
+              <Route exact path ="/friends" component={Friends} />
+              <Route exact path="/feed" component-={Feed} />
+              <Route exact path="/login" component={Login}  />
+              <Route exact path="/" component={Home}  />
+              <Route component={NotFound}  />
+
+            </Switch>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </div>
+    </>
   );
 }
 
