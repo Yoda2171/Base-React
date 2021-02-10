@@ -23,7 +23,7 @@ function App() {
             <Switch>
 
               <Route exact path="/profile/id" component={Profile}  />
-              <Route exact path="/chat" component={Chat}  />
+              <Route exact path="/chats" component={Chat}  />
               <Route exact path ="/friends" component={Friends} />
               <Route exact path="/feed" component={Feed} />
               <Route exact path="/login" component={Login}  />
