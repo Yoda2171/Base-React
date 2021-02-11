@@ -10,45 +10,45 @@ function Friends() {
           <Player />
         </div>
         <div className="col-md">
-        <div className="list-group">
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+          <div className="list-group">
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
 
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
+            <Link
+              to="#"
+              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
+            >
+              <i className="fas fa-camera"></i> &nbsp; Name
               </Link>
-            </div>
+          </div>
         </div>
       </div>
     </>

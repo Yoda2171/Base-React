@@ -27,9 +27,7 @@ function Navbar() {
                 <Link className="nav-link" to="/chats"><strong>Chats</strong></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link ml-auto text-white" id="login" to="/login">
-                  <strong>Log in</strong>
-                </Link>
+                <Link className="nav-link ml-auto " id="login" to="/login"> <strong>Login</strong></Link>
               </li>
             </ul>
           </div>
