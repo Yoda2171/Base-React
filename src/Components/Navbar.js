@@ -9,7 +9,7 @@ function Navbar() {
           <div className="container">
             <Link className="navbar-brand" to="/">
               <p className='mt-2'>
-                <strong> Music App <i class="fas fa-podcast"></i> </strong>
+                <strong> Music App <i className="fas fa-podcast"></i> </strong>
               </p>
             </Link>
             <button
