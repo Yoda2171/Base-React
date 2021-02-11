@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Friends() {
+function People() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Friends() {
     )
 }
 
-export default Friends;
+export default People;

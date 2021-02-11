@@ -9,7 +9,6 @@ import Friends from './Views/Friends';
 import Home from './Views/Home';
 import Login from './Views/Login';
 import NotFound from './Views/NotFound';
-
 import Profile from './Views/Profile';
 
 
