@@ -1,37 +1,47 @@
 import React from 'react'
+import Heading from '../Components/Heading'
+import Heading2 from '../Components/Heading2'
+
+
 
 function Home() {
     return (
         <>
-            <div className="row">
-                <div className="container col-4">
+           
+            <div className="row p-5">
+                <div className="container col-4 ">
                     <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
 
-                <div className="container col-4">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="http://placehold.it/300x180" class="d-block w-100" alt="..." />
+                <div className="container col-4 ">
+                    <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+                        <div className="carousel-inner">
+                            <div className="carousel-item active">
+                                <img src="https://www.curacaonorthseajazz.com/-/media/northseajazz/curacao/program/2014/shot_03_172.jpg" className="d-block w-100" alt="..." />
                             </div>
-                            <div class="carousel-item">
-                                <img src="http://placehold.it/300x180" class="d-block w-100" alt="..." />
+                            <div className="carousel-item">
+                                <img src="https://www.interviewmagazine.com/wp-content/uploads/2019/05/Interview_2019_Web_Summer_BadBunny-05.jpg" className="d-block w-100" alt="..." />
                             </div>
-                            <div class="carousel-item">
-                                <img src="http://placehold.it/300x180" class="d-block w-100" alt="..." />
+                            <div className="carousel-item">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Paul_McCartney_2018_%28cropped%29.jpg" className="d-block w-100" alt="..." />
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                        <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                        <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
                         </a>
                     </div>
+
+                  
                 </div>
+                <Heading />
+                <Heading2 />
             </div>
+        
         </>
     )
 }

@@ -17,7 +17,7 @@ function App() {
     <>
      <div>
         <BrowserRouter>
-          <div className="container-fluid">
+          
             <Navbar />
             <Switch>
 
@@ -31,7 +31,7 @@ function App() {
 
             </Switch>
             <Footer />
-          </div>
+          
         </BrowserRouter>
       </div>
     </>

@@ -21,9 +21,6 @@ function Login() {
             </div>
         </div>
 
-
-
-
     )
 }
 
