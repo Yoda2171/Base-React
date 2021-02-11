@@ -37,6 +37,10 @@
   border-bottom: 2px solid green !important;
 }
 
+body {
+  margin: 0;
+}
+
 
 
 .cardfriend {
@@ -84,4 +88,34 @@
 
 .btnlogin{
   border-radius: 6px !important;
+}
+#login {
+  margin-left: 600px !important;
+}
+
+.navfeed:hover, .navfriends:hover, .navchats:hover {
+  text-decoration: underline red 2px !important;
+}
+
+.fa-podcast {
+  font-size: 24px !important;
+}
+
+.fa-spotify {
+  font-size: 30px !important;
+  color: white !important;
+  margin-left: 10px;
+}
+
+.msgBox {
+  outline: none !important;
+  border: 2.5px solid white !important;
+}
+
+.bubble {
+  border: 3px solid rgb(18, 121, 35);
+  border-radius: 20px;
+  padding: 10px !important;
+  padding-left: 20px !important;
+  background-color: rgb(28, 87, 28);
 }
