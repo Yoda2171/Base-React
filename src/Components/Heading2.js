@@ -2,20 +2,22 @@ import React from 'react'
 
 function Heading2() {
     return (
-        <div>
-            <div className="container-fluid">
-
-                <div className="row">
-                    <div className="col-4">
-                        <img className="rounded-circle  mt-5 mb-5" id="imagen2" src="https://149353296.v2.pressablecdn.com/wp-content/uploads/2018/10/Sting-Bass-678x381.jpg" alt="" />
-                    </div>
-                    <div id="texto2" className="col-8  ">
-                        <div className="row"><h1 >The Second Heading</h1> <h1 className="text-secondary">Pretty Cool Too</h1></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac turpis id massa ultricies congue non sed elit. Sed sed purus a nunc eleifend rhoncus. Donec enim purus, interdum mollis dictum eu, aliquam at odio. </p>
-                    </div>
-                </div>
+        
+        <div class="container-fluid">
+        <div class="row mt-5 mb-5">
+            <div class="col-4">
+                <img src="https://149353296.v2.pressablecdn.com/wp-content/uploads/2018/10/Sting-Bass-678x381.jpg" alt="" class="rounded-circle img-fluid mx-auto d-block"/>
+            </div>
+            <div class="col-8">
+                <h1 class="titulo-h1"><strong>The second Heading</strong> Is Pretty Cool Too</h1>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                    fugit,
+                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
             </div>
         </div>
+    </div>
         
     )
 }

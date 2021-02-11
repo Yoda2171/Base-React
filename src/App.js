@@ -15,23 +15,25 @@ import Profile from './Views/Profile';
 function App() {
   return (
     <>
-     <div>
+      <div>
         <BrowserRouter>
-          
-            <Navbar />
+
+          <Navbar />
+          <div className="container-fluid">
             <Switch>
 
-              <Route exact path="/profile/id" component={Profile}  />
-              <Route exact path="/chats" component={Chat}  />
-              <Route exact path ="/friends" component={Friends} />
+              <Route exact path="/profile/id" component={Profile} />
+              <Route exact path="/chats" component={Chat} />
+              <Route exact path="/friends" component={Friends} />
               <Route exact path="/feed" component={Feed} />
-              <Route exact path="/login" component={Login}  />
-              <Route exact path="/" component={Home}  />
-              <Route component={NotFound}  />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={Home} />
+              <Route component={NotFound} />
 
             </Switch>
-            <Footer />
-          
+          </div>
+          <Footer />
+
         </BrowserRouter>
       </div>
     </>
