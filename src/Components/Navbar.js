@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
-      <div classNameName="row d-flex justify-content-center">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+      <div className="row d-flex justify-content-center">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success container-fluid">
           <div className="container">
             <Link className="navbar-brand" to="/">
               <p className='mt-2'>
-                <strong>Music App</strong>
+                <strong> Music App <i class="fas fa-podcast"></i> </strong>
               </p>
             </Link>
             <button
