@@ -5,17 +5,15 @@ function Login() {
     return (
         <>
             <form>
-                <div className="container-login">
-                    <div className="card cardlogin mb-3 m-auto" style={{ "maxWidth": "600px", "height": "300px" }}>
-                        <div className="row no-gutters">
-                            <div className="col-md-4">
-                                <img className="imglogin" src="./img/img-login.jpg" alt="..." />
-                            </div>
-                            <div className="col-md-8">
-                                <div className="card-body card-body-login mt-5">
-                                    <h5 className="card-title"><i class="fab fa-spotify text-success"></i> Sign into your account</h5>
-                                    <button className="btn btnlogin btn-success d-inlineblock mt-5" style={{ "width": "210px" }}><strong>Login</strong></button>
-                                </div>
+                <div class="card m-auto  border border-success " style={{ "max-width": "750px" }}>
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <img src="./img/img-login.jpg" alt="" className="img-fluid mb-3" />
+                        </div>
+                        <div class="col-md">
+                            <div class="card-body">
+                                <h4 className="card-title mt-5"><i class="fab fa-spotify text-success"></i> Sign into your account</h4>
+                                <button className="btn btnlogin btn-success d-inlineblock mt-5" style={{ "width": "210px" }}><strong>Login</strong></button>
                             </div>
                         </div>
                     </div>

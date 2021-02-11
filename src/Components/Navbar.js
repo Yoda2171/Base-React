@@ -26,10 +26,8 @@ function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/chats"><strong>Chats</strong></Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link ml-auto text-white" id="login" to="/login">
-                  <strong>Login</strong>
-                </Link>
+              <li className="nav-item float-right" style={{"margin-left":"700px"}}>
+                <Link className="nav-link " id="login" to="/login"> <strong>Login</strong></Link>
               </li>
             </ul>
           </div>

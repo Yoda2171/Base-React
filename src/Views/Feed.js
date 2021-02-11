@@ -1,15 +1,17 @@
 import React from 'react'
 import CardFeed from '../Components/CardFeed'
 import '../App.css';
+import Player from '../Components/Player';
 
 function Feed() {
     return (
         <>
             <div className="container">
                 <div className="row mt-5">
-                    <div className="col-md col-sm">
-                        <div className="play card border"></div>
+                    <div className="col-md-5 mt-5 mr-5">
+                        <Player />
                     </div>
+
                     <div className="col-md">
                         <div className="card-header rounded">
                             <div className="row">
@@ -64,6 +66,7 @@ function Feed() {
                 </div>
             </div>
         </>
+
     )
 }
 
