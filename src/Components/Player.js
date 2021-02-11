@@ -7,7 +7,7 @@ function Player() {
         <div className="card bg-success h-50">
           <div className="card-body">
             <p className="card-text">
-            <i class="fab fa-spotify d-flex justify-content-center"></i>
+            <i className="fab fa-spotify d-flex justify-content-center"></i>
             </p>
           </div>
         </div>
