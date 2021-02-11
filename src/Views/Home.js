@@ -10,7 +10,7 @@ function Home() {
            
             <div className="row p-5">
                 <div className="container col-6 ">
-                <h1 class="titulo-h1"> Escucha un top 50 canciones</h1>
+                <h1 class="titulo-h1"> Escucha el top 50 de canciones </h1>
                     <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF" width="600" height="580" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
 
