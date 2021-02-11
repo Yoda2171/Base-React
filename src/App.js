@@ -24,7 +24,7 @@ function App() {
               <Route exact path="/profile/id" component={Profile}  />
               <Route exact path="/chats" component={Chat}  />
               <Route exact path ="/friends" component={Friends} />
-              <Route exact path="/feed" component-={Feed} />
+              <Route exact path="/feed" component={Feed} />
               <Route exact path="/login" component={Login}  />
               <Route exact path="/" component={Home}  />
               <Route component={NotFound}  />
