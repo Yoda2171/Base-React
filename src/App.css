@@ -14,8 +14,9 @@
 
 .imputfeed{
   width: 370px;
-  height: 30px;
-  margin-right: 10px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: rgb(132, 189, 132);
   border: 2px solid green !important;
 }
 
