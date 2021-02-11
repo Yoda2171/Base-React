@@ -10,7 +10,7 @@ function Feed() {
                     <div className="play card border"></div>
                 </div>
                 <div className="col-md-6">
-                    <input className="imputfeed" type="text d-block" placeholder="¿Que estas pensando?"></input>
+                    <input className="imputfeed btn btn-rounded" type="button" value="¿Que estas pensando?"></input>
                     <div className="row mb-2 mt-2">
                         <CardFeed />
                     </div>
