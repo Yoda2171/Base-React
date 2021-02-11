@@ -1,47 +1,51 @@
-.play{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500&display=swap');
+
+* {
+  font-family: "Nunito";
+}
+
+.play {
   width: 300px;
   height: 500px;
   margin-top: 20px;
   background-color: green;
 }
 
-.cardfeed{
+.cardfeed {
   width: 800px;
   height: 300px;
   margin: auto;
-  border:2px solid green !important;
+  border: 2px solid green !important;
 }
 
-.imputfeed{
+.imputfeed {
   width: 370px;
   height: 30px;
   margin-right: 10px;
   border: 2px solid green !important;
 }
 
-.photoprofile{
+.photoprofile {
   width: 100px;
   height: 100px;
   border-radius: 100px;
   background-color: white;
 }
 
-.cardprofile{
+.cardprofile {
   width: 500px;
   height: 400px;
   margin-top: 30px;
   border: 2px solid green !important;
 }
 
-.list-group-item-profile{
+.list-group-item-profile {
   border-bottom: 2px solid green !important;
 }
 
 body {
   margin: 0;
 }
-
-
 
 .cardfriend {
   width: 12rem;
@@ -61,25 +65,25 @@ body {
   margin-left: 600px;
 }
 
-.container-login{
+.container-login {
   padding-top: 10%;
   margin-bottom: 190px;
 }
 
-.cardlogin{
+.cardlogin {
   border-radius: 25px;
   border: 2px solid green !important;
 }
 
-.imglogin{
+.imglogin {
   border-radius: 25px;
 }
 
-.card-body-login{
+.card-body-login {
   margin-left: 90px;
 }
 
-.btnlogin{
+.btnlogin {
   border-radius: 6px !important;
   margin-left: 20px;
 }
@@ -87,7 +91,9 @@ body {
   margin-left: 600px !important;
 }
 
-.navfeed:hover, .navfriends:hover, .navchats:hover {
+.navfeed:hover,
+.navfriends:hover,
+.navchats:hover {
   text-decoration: underline red 2px !important;
 }
 
