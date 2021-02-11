@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <>
       <div className="row d-flex justify-content-center">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-success container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-git container-fluid">
           <div className="container">
             <Link className="navbar-brand" to="/">
               <p className='mt-2'>
