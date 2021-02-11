@@ -1,35 +1,30 @@
+import SpotifyWebApi from 'spotify-web-api-js';
+import Spotify from 'spotify-web-api-js';
+
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            
+            profile: {}
         },
         actions: {
-            a: () => {
-                const store = getStore();
-                console.log(store.name);
-                const { b } = getActions();
-                b();
-            },
-            b: () => {
-                fetch("http://jsonplaceholder.typicode.com/users")
+            getUserTracks: () => {
+                fetch('https://api.spotify.com/v1/artists/2ziB7fzrXBoh1HUPS6sVFn/albums')/* {
+                    'Content-Type': 'text/string'
+                }}) */
                 .then(resp => resp.json())
-                .then(data => {
-                    setStore({
-                        users: data
+                .then(
+                    function(data) {
+                        spotifyApi.getArtistAlbums('2ziB7fzrXBoh1HUPS6sVFn');  
+                        console.log('Artist Albums:', data);
                     })
-                })
-             },
-            c: () => { 
-
-                console.log("ejecutando desde el cliente");
-                setStore({
-                    name: 'Martina',
-                    lastname: 'Ojeda'
-                })
-                //getActions().a();
-            },
+                .catch(err => console.error(err));
+            }
         }
     }
 }
+
+let spotify = new Spotify();
+let spotifyApi = new SpotifyWebApi();
+spotifyApi.setAccessToken('BQBJIC5TfMfbF90pW3qYPuSJK1360SzFQNVJUHLd1eNZBGexBIuMYAJBj');              
 
 export default getState;

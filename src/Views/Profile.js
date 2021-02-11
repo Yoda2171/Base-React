@@ -11,7 +11,7 @@ function Profile() {
                             <div className="photoprofile"></div>
                         </div>
                         <div className="col-md-6 mt-4">
-                            <div className="text-white"><strong>Marisleidis Perdomo</strong></div>
+                            <div className="text-white"><strong></strong></div>
                         </div>
                     </div>
                 </div>
