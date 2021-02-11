@@ -28,7 +28,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link ml-auto text-white" id="login" to="/login">
-                  <strong>Log in</strong>
+                  <strong>Login</strong>
                 </Link>
               </li>
             </ul>

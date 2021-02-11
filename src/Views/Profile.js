@@ -16,10 +16,10 @@ function Profile() {
                     </div>
                 </div>
                 <div className="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item list-group-item-profile">Marisleidis</li>
-                            <li class="list-group-item list-group-item-profile">marisleidis84@gmail.com</li>
-                            <li class="list-group-item list-group-item-profile">Gustos Musicales: Pop</li>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item list-group-item-profile">Marisleidis</li>
+                            <li className="list-group-item list-group-item-profile">marisleidis84@gmail.com</li>
+                            <li className="list-group-item list-group-item-profile">Gustos Musicales: Pop</li>
                             <button type="button" className="btn btn-success mt-5">Agregar amigo</button>
                         </ul>
                         
