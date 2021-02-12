@@ -13,13 +13,13 @@ function Feed() {
                     </div>
 
                     <div className="col-md">
-                        <div className="card-header rounded">
+                        <div className="card-header rounded-pill ">
                             <div className="row">
-                                <div className="col-md col-sm">
+                                <div className="col-md-2">
                                     <div className="fotoperfilfeed bg-success"></div>
                                 </div>
                                 <div className="col-md col-sm">
-                                    <input className="imputfeed btn btn-rounded" type="button" value="¿Que estas pensando?" data-toggle="modal" data-target="#exampleModal"></input>
+                                    <input className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill" type="button" value="¿Que estas pensando?" data-toggle="modal" data-target="#exampleModal"></input>
                                 </div>
                             </div>
                         </div>
