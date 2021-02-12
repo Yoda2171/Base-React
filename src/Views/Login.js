@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Login() {
     return (
         <>
-            <form clasName="col-md" style={{"padding" : "6.4em"}}>
+            <form clasName="col-md" style={{"padding" : "188px"}}>
                 <div className="card m-auto border border-success p-5 col-md" style={{ "max-width": "750px"}}>
                     <div className="row no-gutters">
                         <div className="col-md">
