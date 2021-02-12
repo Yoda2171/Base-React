@@ -43,17 +43,17 @@ function Feed() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header bg-success">
-                            <h3 className="modal-title text-white" id="exampleModalLabel">Crear publicación</h3>
-                            <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
+                            <h3 className="modal-title-center text-center text-white col-md-10 ml-4" id="exampleModalLabel">Crear publicación</h3>
+                            <button type="button" className="close text-white col-md-2" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-md-3 col-sm">
-                                    <img className="fotoperfilfeed bg-success rounded-circle" src="#" />
+                                    <div className="fotoperfilfeed bg-success rounded-circle" src="#"></div>
                                 </div>
-                                <div className="col-md-9 col-sm">
+                                <div className="col-md-9 col-sm mt-2">
                                     <h5>Marisleidis Perdomo</h5>
                                 </div>
                             </div>
