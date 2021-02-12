@@ -59,32 +59,6 @@ body {
   margin-left: 600px;
 }
 
-/* .container-login{
-  padding-top: 10%;
-  margin-bottom: 190px;
-} */
-
-/* .cardlogin{
-  border-radius: 25px;
-  border: 2px solid green !important;
-} */
-
-/* .imglogin{
-  border-radius: 25px;
-} */
-
-/* .card-body-login{
-  margin-left: 90px;
-} */
-
-/* .btnlogin{
-  border-radius: 6px !important;
-  margin-left: 20px;
-} */
-/* #login {
-  margin-left: 600px !important;
-} */
-
 .navfeed:hover, .navfriends:hover, .navchats:hover {
   text-decoration: underline red 2px !important;
 }

@@ -11,8 +11,8 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ">
-              <li className="nav-item">
+            <ul className="navbar-nav">
+              <li className="nav-item ">
                 <Link className="nav-link" to="/"><strong>Home</strong>
                   <span className="sr-only">(current)</span>
                 </Link>
@@ -26,8 +26,8 @@ function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/chats"><strong>Chats</strong></Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link ml-auto " id="login" to="/login"> <strong>Login</strong></Link>
+              <li className="nav-item ">
+                <Link className="nav-link " id="login" to="/login"> <strong>Login</strong></Link>
               </li>
             </ul>
           </div>
