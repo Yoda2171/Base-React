@@ -11,7 +11,7 @@ function Heading2() {
             <div class="col-md">
                 <h1 class="titulo-h1">Comenta y conoce a mas gente con los mismos gustos musicales</h1>
                 <p>"Music App" tambien nos ayuda a encontrarnos con mas gente que tengan los mismo gustos musicales, lo cual podemos opinar
-                    sobre sus albunes o cancion preferida, asi creando grupos o comunidades que hablan de sus preferencias musicales
+                    sobre sus albunes o canciones preferida, asi creando grupos o comunidades que hablan de sus preferencias musicales
                 </p>
             </div>
         </div>

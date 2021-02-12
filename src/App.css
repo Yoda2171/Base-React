@@ -1,39 +1,47 @@
-.play{
-  width: 300px;
-  height: 500px;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500&display=swap');
+
+* {
+  font-family: "Nunito";
+}
+
+.play {
+  width: 10rem;
+  height: 20rem;
   margin-top: 20px;
   background-color: green;
 }
 
-.cardfeed{
-  width: 800px;
+.cardfeed {
+  width: 30em;
   height: 300px;
   margin: auto;
-  border:2px solid green !important;
-}
-
-.imputfeed{
-  width: 370px;
-  height: 30px;
-  margin-right: 10px;
   border: 2px solid green !important;
 }
 
-.photoprofile{
+
+
+.fotoperfilfeed{
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.photoprofile {
   width: 100px;
   height: 100px;
   border-radius: 100px;
   background-color: white;
 }
 
-.cardprofile{
+.cardprofile {
   width: 500px;
   height: 400px;
   margin-top: 30px;
   border: 2px solid green !important;
 }
 
-.list-group-item-profile{
+.list-group-item-profile {
   border-bottom: 2px solid green !important;
 }
 
@@ -84,4 +92,10 @@ body {
   padding: 10px !important;
   padding-left: 20px !important;
   background-color: rgb(28, 87, 28);
+}
+
+.playergeneral {
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
 }

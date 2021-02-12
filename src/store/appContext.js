@@ -15,9 +15,7 @@ const injectContext = PassedComponent => {
 
         useEffect(() => {
             // funciones a ejecutar cuando carga la pagina
-            state.actions.a();
-            state.actions.b();
-            state.actions.c();
+            state.actions.getUserTracks();
         }, [])
 
         return (
