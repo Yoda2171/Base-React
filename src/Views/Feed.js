@@ -12,7 +12,6 @@ function Feed() {
             <div className="container">
                 <div className="row mt-5">
                     <div className="col-md-5 mt-5 mr-5">
-                        <button className="btn btn-primary" onClick={actions.getUserTracks}>OBTENER PERFIL</button>
                         <Player />
                     </div>
 

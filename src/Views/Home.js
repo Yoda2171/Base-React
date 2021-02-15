@@ -2,7 +2,9 @@ import React from 'react'
 import Heading from '../Components/Heading'
 import Heading2 from '../Components/Heading2'
 
-
+function generateAlert() {
+    alert('Its on');
+}
 
 function Home() {
     return (
@@ -12,7 +14,7 @@ function Home() {
             <div className="row p-5">
                 <div className="container col-md ">
                 <h1 class="titulo-h1"> Escucha un top 50 canciones</h1>
-                    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF" width="100" height="580" frameborder="0" allowtransparency="true" allow="encrypted-media" className="col-md"></iframe>
+                    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF" width="100" height="580" frameborder="0" allowtransparency="true" allow="encrypted-media" className="col-md playerhome" ></iframe>
                 </div>
 
                 <div className="container col-md">

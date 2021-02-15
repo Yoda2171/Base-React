@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500&display=swap");
 
 * {
   font-family: "Nunito";
@@ -18,9 +18,7 @@
   border: 2px solid green !important;
 }
 
-
-
-.fotoperfilfeed{
+.fotoperfilfeed {
   border-radius: 100px;
   width: 50px;
   height: 50px;
@@ -49,7 +47,9 @@ body {
   margin-left: 600px;
 }
 
-.navfeed:hover, .navfriends:hover, .navchats:hover {
+.navfeed:hover,
+.navfriends:hover,
+.navchats:hover {
   text-decoration: underline red 2px !important;
 }
 
@@ -80,4 +80,20 @@ body {
   font-size: 18px;
   width: 100%;
   text-align: center;
+}
+
+.loginesquina {
+  float: right;
+}
+
+.dropdown-toggle:hover {
+  background-color: #28a744 !important;
+  outline: none;
+  border: none;
+}
+
+.dropdown-toggle: {
+  background-color: #28a744 !important;
+  outline: none;
+  border: none;
 }
