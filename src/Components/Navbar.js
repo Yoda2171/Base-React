@@ -9,7 +9,7 @@ function Navbar() {
           <Link className="navbar-brand" to="/">
             <strong>
               {" "}
-              Music App <i class="fas fa-podcast"></i>{" "}
+              Facetify <i class="fas fa-podcast"></i>{" "}
             </strong>
           </Link>
           <button
