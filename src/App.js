@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
+import injectContext from './store/appContext';
 import Chat from './Views/Chat';
 import Feed from './Views/Feed';
 import Friends from './Views/Friends';
@@ -40,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default injectContext(App);
