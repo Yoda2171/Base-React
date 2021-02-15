@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CardFeed from '../Components/CardFeed'
 import '../App.css';
 import Player from '../Components/Player';
@@ -6,6 +6,14 @@ import { Context } from '../store/appContext';
 
 function Feed() {
     const {actions} = useContext(Context);
+
+    useEffect(() => {
+        actions.getUserData();
+        return () => {
+            
+        }
+    }, [])
+
 
     return (
         <>
