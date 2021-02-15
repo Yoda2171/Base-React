@@ -6,6 +6,7 @@ import Heading2 from '../Components/Heading2'
 
 function Home() {
     return (
+        
         <>
            
             <div className="row p-5">
