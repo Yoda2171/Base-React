@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CardFeed from '../Components/CardFeed'
 import '../App.css';
 import Player from '../Components/Player';
+import { Context } from '../store/appContext';
 
 function Feed() {
+    const {actions} = useContext(Context);
+
     return (
         <>
             <div className="container">
                 <div className="row mt-5">
                     <div className="col-md-5 mt-5 mr-5">
+                        <button className="btn btn-primary" onClick={actions.getUserTracks}>OBTENER PERFIL</button>
                         <Player />
                     </div>
 
