@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CardFeed from '../Components/CardFeed'
 import '../App.css';
 import Player from '../Components/Player';
+import { Context } from '../store/appContext';
 
 function Feed() {
+    const {actions} = useContext(Context);
+
     return (
         <>
             <div className="container">

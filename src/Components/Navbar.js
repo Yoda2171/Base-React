@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 function Navbar() {
+  const { store, actions } = useContext(Context);
+  console.log(store.profile);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success mb-4">
@@ -43,14 +47,44 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link " id="login" to="/login">
-                  {" "}
-                  <strong>Login</strong>
-                </Link>
-              </li>
-            </ul>
+            {!!store.profile &&
+            store.profile ? (
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-success dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <Link class="dropdown-item" to="/profile/id">
+                        Profile
+                      </Link>
+                      <a class="dropdown-item" href="#">
+                        Log Out
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul> ) : (
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-link " id="login" to="/login">
+                    {" "}
+                    <strong>Login</strong>
+                  </Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
