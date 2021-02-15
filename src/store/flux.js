@@ -8,14 +8,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         actions: {
             getUserTracks: () => {
-                fetch('https://api.spotify.com/v1/artists/2ziB7fzrXBoh1HUPS6sVFn/albums')/* {
+                fetch('	https://api.spotify.com/v1/me')/* {
                     'Content-Type': 'text/string'
                 }}) */
                 .then(resp => resp.json())
                 .then(
                     function(data) {
-                        spotifyApi.getArtistAlbums('2ziB7fzrXBoh1HUPS6sVFn');  
-                        console.log('Artist Albums:', data);
+                        console.log(data);
                     })
                 .catch(err => console.error(err));
             }

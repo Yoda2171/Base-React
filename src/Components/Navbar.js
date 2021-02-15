@@ -6,7 +6,7 @@ function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success mb-4">
         <div className="container">
-          <Link className="navbar-brand" to="/"><strong> Music App <i class="fas fa-podcast"></i> </strong></Link>
+          <Link className="navbar-brand" to="/"><strong> Facetify <i class="fas fa-podcast"></i> </strong></Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
