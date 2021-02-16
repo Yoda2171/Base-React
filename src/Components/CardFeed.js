@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../App.css';
+import { Context } from '../store/appContext';
 
 function CardFeed() {
+
+    const { store } = useContext(Context);
+
     return (
         <div className="row p-2">
             <div className="col-md col-sm d-flex justify-content-center">
@@ -9,7 +13,8 @@ function CardFeed() {
                     <div className="card-header bg-success">
                         <div className="row">
                             <div className="col-md col-sm">
-                                <div className="photoprofile"></div>
+                                <div className="photoprofile">
+                                </div>
                             </div>
                             <div className="col-md col-sm mt-4">
                                 <div className="text-white"><strong>Marisleidis Perdomo</strong></div>

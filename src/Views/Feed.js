@@ -4,11 +4,11 @@ import '../App.css';
 import Player from '../Components/Player';
 import { Context } from '../store/appContext';
 
-function Feed(props) {
+    
+    
+function Feed() {
     const { store, actions } = useContext(Context);
     let hash = window.location.hash;
-    console.log(hash);
-    
 
     useEffect(() => {
         actions.getPlayLists();
@@ -31,7 +31,7 @@ function Feed(props) {
                         <div className="card-header rounded-pill ">
                             <div className="row">
                                 <div className="col-md-2">
-                                    <img className="" src="{store.profile.images[0].url}"/>
+                                    <img src={!!store.profile && store.profile.images[0].url} id="feedAvatar" alt="fotito" />
                                 </div>
                                 <div className="col-md col-sm">
                                     <input className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill" type="button" value="¿Que estas pensando?" data-toggle="modal" data-target="#exampleModal"></input>
@@ -54,7 +54,7 @@ function Feed(props) {
             </div >
 
             {/* <!-- Modal --> */}
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header bg-success">
@@ -66,10 +66,10 @@ function Feed(props) {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-md-3 col-sm">
-                                    <div className="fotoperfilfeed bg-success rounded-circle" src="#"></div>
+                                <img src={!!store.profile && store.profile.images[0].url} id="modalAvatar" alt="fotito" />
                                 </div>
                                 <div className="col-md-9 col-sm mt-2">
-                                    <h5>Marisleidis Perdomo</h5>
+                                    <h5>{!!store.profile && store.profile.display_name}</h5>
                                 </div>
                             </div>
                             <textarea className="w-100 border-0 mt-4" type="text" placeholder="¿Que estas pensando, Marisleidis?"></textarea>

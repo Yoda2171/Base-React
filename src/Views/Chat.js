@@ -60,7 +60,7 @@ function Chat() {
           <div className="col-md-6">
             <div className="card w-100 h-75 bg-success">
               <div className="card-body">
-                <h5 className="card-title text-white"><i class="fas fa-camera"></i> Name </h5>
+                <h5 className="card-title text-white"><i className="fas fa-camera"></i> Name </h5>
                 <p className="card-text text-white bubble">
                   <strong>Hello!</strong>
                 </p>
