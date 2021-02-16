@@ -17,7 +17,6 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => {
-      // funciones a ejecutar cuando carga la pagina
     }, []);
 
     return (
