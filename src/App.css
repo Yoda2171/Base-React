@@ -92,8 +92,19 @@ body {
   border: none;
 }
 
-.dropdown-toggle: {
-  background-color: #28a744 !important;
-  outline: none;
-  border: none;
+#profileAvatar {
+  border-radius: 50%;
+  width: 25%;
 }
+
+#feedAvatar {
+  border-radius: 50%;
+  width: 100%;
+}
+
+#modalAvatar {
+  border-radius: 50%;
+  width: 75%;
+}
+
+
