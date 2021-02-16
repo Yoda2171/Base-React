@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             Accept: "application/json",
             Authorization:
-              "Bearer BQCASgwg6pAkq6eXaShaaYMd3lnwPYH2KMr5i6M7xNSFXg2exsMESrUbxObtorL5e-h-zXXO7OzWmLRbl_pWy_cKg_cVK5-dhsE2UQfyW3dOwbQc6nBqFDoxgMiW7LEzBWisDoxAXA",
+              "Bearer BQB7nfoAlfjTBo7BVXCmllsESqQfG6Y8HAHTSUfUL72qDzC3ylhMEIhMbwVB1wxdvvusAcCWKsk4l7hP3qK7xD7NidtyC6bRVjX0zFvxM1SFoCbgWdjp8tMhQrU5KI1jfCSULGGPVg",
             "Content-Type": "application/json",
           },
         })

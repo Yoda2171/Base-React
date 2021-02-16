@@ -12,8 +12,7 @@ function Navbar() {
         <div className="container">
           <Link className="navbar-brand" to="/">
             <strong>
-              {" "}
-              Facetify <i className="fas fa-podcast"></i>{" "}
+              Facetify <i className="fas fa-podcast"></i>
             </strong>
           </Link>
           <button
@@ -50,33 +49,16 @@ function Navbar() {
                 </ul>) : (null)}
             {!!store.profile &&
               store.profile ? (
-                <ul className="navbar-nav">
-                <li className="nav-item">
-                  <div className="dropdown">
-                    <button
-                      className="btn btn-success dropdown-toggle"
-                      type="button"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i className="fas fa-user-circle"></i>
-                    </button>
-                    <div
-                      className="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <Link className="dropdown-item" to="/profile/id">
-                        Profile
-                      </Link>
-                      <a className="dropdown-item" href="#">
-                        Log Out
-                      </a>
-                    </div>
+                <div className="dropdown">
+                  <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i className="fas fa-user-circle m-0"></i>
+                  </a>
+
+                  <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
+                    <Link className="dropdown-item" to="/profile/id">Profile</Link>
+                    <a className="dropdown-item" href="#">Log Out </a>
                   </div>
-                </li>
-              </ul>) : (
+                </div>) : (
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link className="nav-link" id="login" to="/login">
