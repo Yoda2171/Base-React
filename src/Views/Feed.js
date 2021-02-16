@@ -4,17 +4,19 @@ import '../App.css';
 import Player from '../Components/Player';
 import { Context } from '../store/appContext';
 
-function Feed() {
-    const {actions} = useContext(Context);
+function Feed(props) {
+    const { store, actions } = useContext(Context);
+    let hash = window.location.hash;
+    console.log(hash);
+    
 
     useEffect(() => {
-        /* actions.getPlayLists()
-        actions.getArtists(); */
+        actions.getPlayLists();
         actions.getUserData();
         return () => {
-            
         }
-    }, [])
+
+    }, []);
 
 
     return (
@@ -29,7 +31,7 @@ function Feed() {
                         <div className="card-header rounded-pill ">
                             <div className="row">
                                 <div className="col-md-2">
-                                    <div className="fotoperfilfeed bg-success"></div>
+                                    <img className="" src="{store.profile.images[0].url}"/>
                                 </div>
                                 <div className="col-md col-sm">
                                     <input className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill" type="button" value="¿Que estas pensando?" data-toggle="modal" data-target="#exampleModal"></input>

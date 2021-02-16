@@ -17,12 +17,16 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => {
+        return () => {
+            
+        }
       // funciones a ejecutar cuando carga la pagina
+
     }, []);
 
     return (
       <Context.Provider value={state}>
-        <PassedComponent {...props} />
+      <PassedComponent {...props} />
       </Context.Provider>
     );
   };

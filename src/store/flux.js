@@ -1,7 +1,8 @@
+import { hash } from '../Views/Feed';
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
-            token: "Bearer BQBlDrH5FTa7RC0CioPAEJGNz4TiIkUU3ZieRN2zNIf-qyEDJ30Cl1B3fcezpx-1-_Vq30mpAMryT4hgt1GfqKi-f750MnyTuS77gJYnd64yJWXhMgGzWEGW1W_-ni0JGvP0OmOqWFRl-dXOZGqlBb8oCvkSdSsUQd8F4qqJhDay7qhV-n5m1pkmQ2umMFCK2fieBqPIZhVhnv-4Lu9KiNOK6AFh09PfoC7b281GOwTA4RMUJ7SmLypMLLhRGr-iyq8l0DVKdGOc2rCSehrLQRptQw4XpYn_7GM",
+            token: "Bearer BQDeZR5I5jvaztOeqUeCKiwa8BoGS4kEm1JQyW5zRsXQtlAfKC2F8htOjv7IVeP5t1xMMYC7s7k4HIk8ZPxIlpqARspe55GrUde2ZyumJI_sPMRMGBa09sqE9SuPbdokE9DqzRJePWCdnZH-Y6h0sg2dDALgAxg",
             profile: null,
             artists: null,
             playlists: null,
@@ -62,6 +63,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => console.error(error));
             },
+           /*  getToken: () => {
+                fetch("https://accounts.spotify.com/api/token", {
+                    body: "grant_type=refresh_token&refresh_token=BQBxtM1_m9_DuomnxP8VZt27SUP4fBJOsAfsP88laou0uynZMWc2hydhFrXermUc2XJz9scVQwfdJwpWwFH9idxPvb3GBF_pOSbClDno9aqm05ApzrrOZvHGpILv-FERkPbC5MpAOYsLUPf92hiVEV4Tw9kIAbs&client_id=67aafa4a55a5406cbb5a1df8096f0448",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    method: "POST"
+                })
+            }, */
         },
     };
 };

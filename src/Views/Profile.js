@@ -18,8 +18,7 @@ function Profile() {
                     store.profile.display_name
                     }
                     </li>
-                    <li className="list-group-item border-success">{!!store.profile &&
-                    store.profile.email}</li>
+                    <li className="list-group-item border-success">email</li>
                     <li className="list-group-item border-success">Gustos Musicales: Pop</li>
                     <button type="button" className="btn btn-success btn-lg btn-block mt-5">Agregar amigo</button>
                 </div>
