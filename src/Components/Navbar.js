@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 
 function Navbar() {
   const { store, actions } = useContext(Context);
-  console.log(store.profile);
 
   return (
     <>
@@ -29,27 +28,28 @@ function Navbar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li className="nav-item ">
-                <Link className="nav-link" to="/feed">
-                  {" "}
-                  <strong>Feed</strong>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/friends">
-                  <strong>Friends</strong>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/chats">
-                  <strong>Chats</strong>
-                </Link>
-              </li>
-            </ul>
             {!!store.profile &&
-            store.profile ? (
-              <ul className="navbar-nav">
+              store.profile ? (
+                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li className="nav-item ">
+                    <Link className="nav-link" to="/feed">
+                      <strong>Feed</strong>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/friends">
+                      <strong>Friends</strong>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/chats">
+                      <strong>Chats</strong>
+                    </Link>
+                  </li>
+                </ul>) : (null)}
+            {!!store.profile &&
+              store.profile ? (
+                <ul className="navbar-nav">
                 <li className="nav-item">
                   <div className="dropdown">
                     <button
@@ -75,16 +75,15 @@ function Navbar() {
                     </div>
                   </div>
                 </li>
-              </ul> ) : (
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <Link className="nav-link " id="login" to="/login">
-                    {" "}
-                    <strong>Login</strong>
-                  </Link>
-                </li>
-              </ul>
-            )}
+              </ul>) : (
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link className="nav-link" id="login" to="/login">
+                      <strong>Login</strong>
+                    </Link>
+                  </li>
+                </ul>
+              )}
           </div>
         </div>
       </nav>

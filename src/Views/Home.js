@@ -8,6 +8,7 @@ function generateAlert() {
 
 function Home() {
     return (
+        
         <>
            
             <div className="row p-5">

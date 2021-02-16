@@ -7,12 +7,15 @@ import { Context } from '../store/appContext';
 function Feed() {
     const {actions} = useContext(Context);
 
-
     useEffect(() => {
+        /* actions.getPlayLists()
+        actions.getArtists(); */
         actions.getUserData();
         return () => {
+            
         }
     }, [])
+
 
     return (
         <>
