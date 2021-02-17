@@ -1,8 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import Player from "../Components/Player";
+import { Context } from "../store/appContext";
 
 function Chat() {
+
+  const { store, actions } = useContext(Context);
+    /* console.log(store.token) */
+    
+    const history = useHistory();
+    
+    useEffect(() => {
+        if (store.profile === null) history.push('/login');
+      }, []);
+      
   return (
     <>
       <div className="container-fluid mt-4">

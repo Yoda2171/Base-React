@@ -1,14 +1,10 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 function Navbar() {
   const { store, actions } = useContext(Context);
-  
-  console.log(store.profile);
-  
-  
-    
+  const history = useHistory();
 
   return (
     <>
@@ -60,7 +56,7 @@ function Navbar() {
 
                   <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
                     <Link className="dropdown-item" to="/profile/id">Profile</Link>
-                    <a className="dropdown-item" href="#">Log Out </a>
+                    <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
                   </div>
                 </div>) : (
                 <ul className="navbar-nav ml-auto">
@@ -78,4 +74,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default withRouter(Navbar);

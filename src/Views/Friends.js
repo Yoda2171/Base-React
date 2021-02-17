@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import Player from "../Components/Player";
 import { Context } from "../store/appContext";
 
 function Friends() {
+  const { store, actions } = useContext(Context);
+  const history = useHistory();
 
-  const { actions } = useContext(Context);
+  useEffect(() => {
+    if (store.profile === null) history.push("/login");
+  }, []);
 
   return (
     <>
@@ -20,38 +24,38 @@ function Friends() {
               className="list-group-item list-group-item-action d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Marisleidis Perdomo
-              </Link>
+            </Link>
 
             <Link
               to="#"
               className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+            </Link>
             <Link
               to="#"
               className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+            </Link>
             <Link
               to="#"
               className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+            </Link>
             <Link
               to="#"
               className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+            </Link>
             <Link
               to="#"
               className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
             >
               <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+            </Link>
           </div>
         </div>
       </div>

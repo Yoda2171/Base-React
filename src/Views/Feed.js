@@ -3,25 +3,19 @@ import CardFeed from '../Components/CardFeed'
 import '../App.css';
 import Player from '../Components/Player';
 import { Context } from '../store/appContext';
+import { useHistory } from 'react-router-dom';
 
-    
+
     
 function Feed() {
     const { store, actions } = useContext(Context);
-    console.log(store.token)
+    /* console.log(store.token) */
+    
+    const history = useHistory();
     
     useEffect(() => {
-        if (actions.getToken() = actions.getToken() ) {
-            actions.getToken()
-        } else {
-            
-        }
-        
-        actions.getUserData();
-
-        
-    }, []);
-    
+        if (store.profile === null) history.push('/login');
+      }, []);
 
     return (
         <>
