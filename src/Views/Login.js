@@ -6,7 +6,6 @@ function Login() {
 
     const { store, actions } = useContext(Context);
 
-
     return (
         <>
             <div clasName="col-md" style={{ "padding": "188px" }}>

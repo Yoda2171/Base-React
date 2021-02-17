@@ -4,19 +4,14 @@ import '../App.css';
 import Player from '../Components/Player';
 import { Context } from '../store/appContext';
 
+    
+    
 function Feed() {
     const { store, actions } = useContext(Context);
     console.log(store.token)
     
-    useEffect(() => {
-        actions.getUserData();
-        
-        actions.getToken()
-        return () => {
-            
-        }
-    }, [])
-
+    
+    
 
     return (
         <>
@@ -83,5 +78,4 @@ function Feed() {
 
     )
 }
-
-export default Feed
+export default Feed;

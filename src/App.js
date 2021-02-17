@@ -11,6 +11,7 @@ import Home from './Views/Home';
 import Login from './Views/Login';
 import NotFound from './Views/NotFound';
 import Profile from './Views/Profile';
+import Token from './Views/Token';
 
 
 function App() {
@@ -22,11 +23,11 @@ function App() {
           <Navbar />
           <div className="container-fluid">
             <Switch>
-
+              <Route exact path="/facetify" component={Token}/>
               <Route exact path="/profile/id" component={Profile} />
               <Route exact path="/chats" component={Chat} />
               <Route exact path="/friends" component={Friends} />
-              <Route exact path="/feed" component={Feed} />
+              <Route exact path="/feed/" component={Feed} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/" component={Home} />
               <Route component={NotFound} />
