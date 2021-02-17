@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       handleLogin: () => {
         let store = getStore();
-        window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
+        window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL2}&response_type=token&show_dialog=true`;
       },
 
       getToken: () => {
@@ -41,7 +41,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         let hash = window.location.hash;
         let hashResultante = hash.split("&");
         let token = hashResultante[0].replace("#access_token=", "");
-
         store.token = token;
 
       },

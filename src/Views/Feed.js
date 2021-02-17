@@ -10,7 +10,17 @@ function Feed() {
     const { store, actions } = useContext(Context);
     console.log(store.token)
     
-    
+    useEffect(() => {
+        if (actions.getToken() = actions.getToken() ) {
+            actions.getToken()
+        } else {
+            
+        }
+        
+        actions.getUserData();
+
+        
+    }, []);
     
 
     return (
