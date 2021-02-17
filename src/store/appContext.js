@@ -10,7 +10,7 @@ const injectContext = (PassedComponent) => {
         getActions: () => state.actions,
         setStore: (updateStore) =>
           setState({
-            store: { ...state.store, ...updateStore },
+            store: Object.assign(state.store, updateStore),
             actions: { ...state.actions },
           }),
       })
@@ -18,8 +18,8 @@ const injectContext = (PassedComponent) => {
 
     useEffect(() => {
       // funciones a ejecutar cuando carga la pagina
-   
-      
+      state.actions.isAuthenticated();
+      state.actions.getUserData();
       
     }, []);
 

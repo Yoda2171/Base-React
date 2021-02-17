@@ -1,9 +1,16 @@
 import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../App.css";
 import { Context } from "../store/appContext";
 
 function Profile() {
   const { store, actions } = useContext(Context);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (store.profile === null) history.push("/login");
+  }, []);
 
   return (
     <>
@@ -27,8 +34,8 @@ function Profile() {
             {!!store.profile && store.profile.followers.total}
           </li>
           <li className="list-group-item border-success">
-          <i class="fas fa-music" onClick={actions.getUserArtists}></i> {/* {!!store.artists && store.artists} */}
-          
+            <i class="fas fa-music" onClick={actions.getUserArtists}></i>{" "}
+            {/* {!!store.artists && store.artists} */}
           </li>
           <li className="list-group-item border-success">
             Gustos Musicales: Pop

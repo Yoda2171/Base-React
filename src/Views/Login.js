@@ -1,10 +1,18 @@
 import React, { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 function Login() {
 
     const { store, actions } = useContext(Context);
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (store.token !== null) {
+          history.push('/feed');
+        }
+      }, []);
 
     return (
         <>
