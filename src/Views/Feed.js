@@ -6,9 +6,12 @@ import { Context } from '../store/appContext';
 
 function Feed() {
     const { store, actions } = useContext(Context);
-
+    console.log(store.token)
+    
     useEffect(() => {
         actions.getUserData();
+        
+        actions.getToken()
         return () => {
             
         }

@@ -4,7 +4,11 @@ import { Context } from "../store/appContext";
 
 function Navbar() {
   const { store, actions } = useContext(Context);
+  
   console.log(store.profile);
+  
+  
+    
 
   return (
     <>
