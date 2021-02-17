@@ -17,6 +17,8 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => {
+      // funciones a ejecutar cuando carga la pagina
+      state.actions.getToken();
     }, []);
 
     return (

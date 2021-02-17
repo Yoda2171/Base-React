@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 
 function Navbar() {
   const { store, actions } = useContext(Context);
+  console.log(store.profile);
 
   return (
     <>
@@ -52,6 +53,7 @@ function Navbar() {
                   <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i className="fas fa-user-circle m-0"></i>
                   </a>
+
                   <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
                     <Link className="dropdown-item" to="/profile/id">Profile</Link>
                     <a className="dropdown-item" href="#">Log Out </a>

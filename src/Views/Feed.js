@@ -8,10 +8,9 @@ import { Context } from '../store/appContext';
     
 function Feed() {
     const { store, actions } = useContext(Context);
-    let hash = window.location.hash;
+    /* let hash = window.location.hash; */
 
     useEffect(() => {
-        actions.getPlayLists();
         actions.getUserData();
         return () => {
         }
