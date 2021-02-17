@@ -7,16 +7,16 @@ import { Context } from '../store/appContext';
     
     
 function Feed() {
-    const { store, actions } = useContext(Context);
-    /* let hash = window.location.hash; */
-
+    const {store, actions} = useContext(Context);
+    
     useEffect(() => {
+        actions.getToken();
         actions.getUserData();
         return () => {
         }
-
+        
     }, []);
-
+    //debugger;
 
     return (
         <>
@@ -83,5 +83,4 @@ function Feed() {
 
     )
 }
-
-export default Feed
+export default Feed;
