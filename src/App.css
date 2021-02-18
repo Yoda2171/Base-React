@@ -33,9 +33,9 @@ body {
   width: 12rem;
 }
 
-.list-group {
+/* .list-group {
   height: 525px;
-}
+} */
 
 .fa-user-circle {
   color: rgb(255, 255, 255);
@@ -76,11 +76,11 @@ body {
   background-color: rgb(28, 87, 28);
 }
 
-.playergeneral {
+/* .playergeneral {
   font-size: 18px;
   width: 100%;
   text-align: center;
-}
+} */
 
 .loginesquina {
   float: right;
