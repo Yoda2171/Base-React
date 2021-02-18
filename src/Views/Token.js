@@ -7,12 +7,10 @@ function Token() {
 
   const history = useHistory();
 
-  useEffect(() => {
-    
-    actions.getToken();
-    actions.getUserData();
-    history.push("/feed"); 
 
+
+  useEffect(() => {
+    actions.getToken(history);
 
   }, []);
 

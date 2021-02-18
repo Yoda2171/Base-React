@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
+      
 
       handleLogin: () => {
         let store = getStore();
@@ -36,8 +37,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         sessionStorage.setItem("access_token", token);
         console.log(token);
 
-        getActions().getUserData();
         
+        history.push("/feed");
       },
 
       getUserData: () => {
@@ -64,6 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           })
           .catch((error) => console.error(error));
+          console.log(store.profile)
       },
 
       getOtherProfile: () => {
