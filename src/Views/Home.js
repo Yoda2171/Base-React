@@ -30,21 +30,21 @@ function Home() {
                 <img
                   src="https://www.curacaonorthseajazz.com/-/media/northseajazz/curacao/program/2014/shot_03_172.jpg"
                   className="d-block w-100"
-                  alt="..."
+                  
                 />
               </div>
               <div className="carousel-item">
                 <img
                   src="https://www.interviewmagazine.com/wp-content/uploads/2019/05/Interview_2019_Web_Summer_BadBunny-05.jpg"
                   className="d-block w-100"
-                  alt="..."
+                  
                 />
               </div>
               <div className="carousel-item">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/2/24/Paul_McCartney_2018_%28cropped%29.jpg"
                   className="d-block w-100"
-                  alt="..."
+                  
                 />
               </div>
             </div>

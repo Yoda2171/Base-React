@@ -7,9 +7,8 @@ function Token() {
 
   const history = useHistory();
 
-
-
   useEffect(() => {
+    
     actions.getToken(history);
 
   }, []);

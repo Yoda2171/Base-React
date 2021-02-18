@@ -20,7 +20,7 @@ function Login() {
                 <div className="card m-auto border border-success p-5 col-md" style={{ "max-width": "750px" }}>
                     <div className="row no-gutters">
                         <div className="col-md">
-                            <img src="./img/img-login.jpg" alt="" className="img-fluid mb-3" />
+                            <img src="./img/img-login.jpg"  className="img-fluid mb-3" />
                         </div>
                         <div className="col-md">
                             <div className="card-body col-md">

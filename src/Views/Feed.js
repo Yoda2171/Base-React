@@ -14,7 +14,7 @@ function Feed() {
     const history = useHistory();
     
     useEffect(() => {
-        if (store.token === null && store.profile === null ) history.push('/login');
+        if (store.token === null) history.push('/login');
       }, []);
 
     return (

@@ -2,12 +2,14 @@ import { token } from "../Views/Feed";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      tracks:null,
+      artist:null,
       token: null,
       profile: null,
       error: null,
       REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
-      REACT_APP_REDIRECT_URL: "http://localhost:3000/facetify",
+      REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
       REACT_APP_REDIRECT_URL2: "http://localhost:3000/feed",
     },
     actions: {
@@ -18,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
-      
+
 
       handleLogin: () => {
         let store = getStore();
@@ -37,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         sessionStorage.setItem("access_token", token);
         console.log(token);
 
-        
+
         history.push("/feed");
       },
 
@@ -65,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           })
           .catch((error) => console.error(error));
-          console.log(store.profile)
+        console.log(store.profile)
       },
 
       getOtherProfile: () => {
@@ -94,6 +96,40 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => console.log(data))
           .catch((error) => console.error(error));
       },
+      search: (input) => {
+        let store = getStore();
+        fetch(`https://api.spotify.com/v1/search?q=${input}&type=track%2Cartist&market=US&limit=10&offset=5`, {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${store.token}`,
+            "Content-Type": "application/json"
+          }
+
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({
+              artist:data
+            })
+            console.log(store.artist)
+            fetch(`https://api.spotify.com/v1/artists/${store.artist.id}/top-tracks?country=US&`,{
+              headers: {
+                Accept: "application/json",
+                Authorization: `Bearer ${store.token}`,
+                "Content-Type": "application/json"
+              }
+            })
+            .then((response)=> response.json())
+            .then((data) =>{
+              setStore({
+                tracks:data
+              })
+              console.log(store.tracks)
+            })
+          })
+          
+      },
+
       logOut: (history) => {
         sessionStorage.removeItem('access_token');
         setStore({
