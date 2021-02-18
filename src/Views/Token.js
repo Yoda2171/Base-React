@@ -7,25 +7,12 @@ function Token() {
 
   const history = useHistory();
 
-  let nuevaURL = "http://localhost:3000/feed"; // La URL de destino.
-  let espera = 3; // La espera en segundos antes de ejecurtar la redirección.
-
   useEffect(() => {
-    actions.getToken(history);
     
-    /* 
-    function paginaCargaCompleta(fn) {
-        if (document.readyState !== "loading") {
-          fn();
-        } else {
-          document.addEventListener("DOMContentLoaded", fn);
-        }
-      }
-    
-      paginaCargaCompleta(function () {
-        espera = parseInt(espera);
-        setTimeout('location.href="' + nuevaURL + '"', espera * 1000);
-      }); */
+    actions.getToken();
+    actions.getUserData();
+    history.push("/feed"); 
+
 
   }, []);
 

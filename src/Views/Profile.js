@@ -30,11 +30,11 @@ function Profile() {
         </div>
         <div className="card-body list-group-flush">
           <li className="list-group-item border-success ">
-            <i class="fas fa-users"></i>{" "}
+            <i className="fas fa-users"></i>{" "}
             {!!store.profile && store.profile.followers.total}
           </li>
           <li className="list-group-item border-success">
-            <i class="fas fa-music" onClick={actions.getUserArtists}></i>{" "}
+            <i className="fas fa-music" onClick={actions.getUserArtists}></i>{" "}
             {/* {!!store.artists && store.artists} */}
           </li>
           <li className="list-group-item border-success">

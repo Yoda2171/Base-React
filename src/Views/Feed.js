@@ -9,12 +9,12 @@ import { useHistory } from 'react-router-dom';
     
 function Feed() {
     const { store, actions } = useContext(Context);
-    /* console.log(store.token) */
+    
     
     const history = useHistory();
     
     useEffect(() => {
-        if (store.profile === null) history.push('/login');
+        if (store.token === null) history.push('/login');
       }, []);
 
     return (

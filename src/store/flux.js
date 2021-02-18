@@ -18,6 +18,28 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
+
+      handleLogin: () => {
+        let store = getStore();
+        window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
+      },
+
+      getToken: (history) => {
+        let hash = window.location.hash;
+        let hashResultante = hash.split("&");
+        let token = hashResultante[0].replace("#access_token=", "");
+
+        setStore({
+          token: token,
+        });
+
+        sessionStorage.setItem("access_token", token);
+        console.log(token);
+
+        getActions().getUserData();
+        
+      },
+
       getUserData: () => {
         let store = getStore();
         console.log(store.token);
@@ -42,27 +64,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           })
           .catch((error) => console.error(error));
-      },
-
-      handleLogin: () => {
-        let store = getStore();
-        window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL2}&response_type=token&show_dialog=true`;
-      },
-
-      getToken: (history) => {
-        let hash = window.location.hash;
-        let hashResultante = hash.split("&");
-        let token = hashResultante[0].replace("#access_token=", "");
-
-        setStore({
-          token: token,
-        });
-
-        sessionStorage.setItem("access_token", token);
-        console.log(token);
-
-        getActions().getUserData();
-        history.push("/feed");
       },
 
       getOtherProfile: () => {
