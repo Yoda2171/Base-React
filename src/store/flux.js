@@ -121,7 +121,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({
                   artista:artist
                 });
-                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/top-tracks?country=US&`, {
+                
+                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
                   method: 'GET',
                   headers: {
                     'Content-Type': 'application/json',
@@ -130,8 +131,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                   .then(response => response.json())
                   .then(data => {
-                    console.log('artista', data);
-                    const tracks = data.tracks;
+                    console.log('albun', data);
+                    const tracks = data.items;
                     setStore({
                       tracks:tracks
                     })

@@ -21,24 +21,30 @@ function Player() {
             <div className="input-group-prepend">
               <button className="input-group-text bg-success text-white" onClick={() => actions.search(input)} id="inputGroup-sizing-default"><i className="fas fa-search"></i></button>
             </div>
-            <input type="text" className="form-control" onChange={cambio} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            <input type="text" className="form-control" onChange={cambio} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Busca tu artista favorito" />
           </div>
         </div>
 
         {
           !!store.tracks &&
           store.tracks.map((track, i) => {
+            let urlID =`https://open.spotify.com/embed/album/${track.id}`
+            /* let urlID =`https://open.spotify.com/embed/track/${track.id}` */
+            
             return (
               <>
-                <div class="list-group">
-                  <button type="button" class="list-group-item list-group-item-action bg-dark text-white">{track.name}</button>
+                <div key={i} class="list-group">
+                  {/* <button type="button" class="list-group-item list-group-item-action bg-dark text-white">{track.name} {track.id}</button> */}
+                  <iframe src={urlID} className="mb-3" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                  
                 </div>
+                
               </>
             )
           })
         }
-
-        <div className="list-group text-center bg-dark">
+       
+        {/* <div className="list-group text-center bg-dark">
           <div className="btn-group btn-group-lg " role="group" aria-label="Basic example">
             <button type="button" className="btn btn-dark text-success">
               <h4><i className="fas fa-backward mt-2"></i></h4>
@@ -50,7 +56,7 @@ function Player() {
               <h4><i className="fas fa-forward mt-2"></i></h4>
             </button>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>
