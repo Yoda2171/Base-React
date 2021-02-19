@@ -2,8 +2,8 @@ import { token } from "../Views/Feed";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      tracks:null,
-      artist:null,
+      tracks: null,
+      artista: null,
       token: null,
       profile: null,
       error: null,
@@ -98,48 +98,63 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       search: (input) => {
         let store = getStore();
-        fetch(`https://api.spotify.com/v1/search?q=${input}&type=track%2Cartist&market=US&limit=10&offset=5`, {
+        fetch(`https://api.spotify.com/v1/search?query=${input}&type=artist&market=US&limit=1`, {
+          method: 'GET',
           headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${store.token}`,
-            "Content-Type": "application/json"
-          }
-
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.token}`,
+          },
+          mode: 'cors',
+          cache: 'default'
         })
-          .then((resp) => resp.json())
-          .then((data) => {
-            setStore({
-              artist:data
+
+          .then(response =>
+            Promise.resolve({
+              data: response.json(),
+              status: response.status
             })
-            console.log(store.artist)
-            fetch(`https://api.spotify.com/v1/artists/${store.artist.id}/top-tracks?country=US&`,{
-              headers: {
-                Accept: "application/json",
-                Authorization: `Bearer ${store.token}`,
-                "Content-Type": "application/json"
-              }
-            })
-            .then((response)=> response.json())
-            .then((data) =>{
-              setStore({
-                tracks:data
+              .then(post => post.data)
+              .then(json => json.artists)
+              .then(items => {
+                console.log(items);
+                const artist = items.items[0];
+                setStore({
+                  artista:artist
+                });
+                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/top-tracks?country=US&`, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${store.token}`,
+                  },
+                })
+                  .then(response => response.json())
+                  .then(data => {
+                    console.log('artista', data);
+                    const tracks = data.tracks;
+                    setStore({
+                      tracks:tracks
+                    })
+                  })
+
               })
-              console.log(store.tracks)
-            })
-          })
-          
-      },
+          );
 
-      logOut: (history) => {
-        sessionStorage.removeItem('access_token');
-        setStore({
-          profile: null,
-          token: null,
-          error: null
-        })
-        history.push('/login');
-      }
+      
+
+
     },
+
+    logOut: (history) => {
+      sessionStorage.removeItem('access_token');
+      setStore({
+        profile: null,
+        token: null,
+        error: null
+      })
+      history.push('/login');
+    }
+  },
   };
 };
 
