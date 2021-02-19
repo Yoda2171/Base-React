@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: null,
             profile: null,
             error: null,
+            userdb: [],
             REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
             REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
             REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
@@ -20,7 +21,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
                 }
             },
-
 
             handleLogin: () => {
                 let store = getStore();
@@ -68,9 +68,40 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => console.error(error));
                 console.log(store.profile)
-                if (store.profile !== null){ 
-                    getActions().getUserDataPost();
+            },
+
+            checkUser: () => {
+                
+                const { profile, userdb } = getStore();
+                if (profile !== null && userdb !== null) {
+                    const user = userdb.find(user => profile.id === user.user_id);
+                    if (user) {
+                        getActions().getUserDataPut(profile.id);
+                    } else {
+                        getActions().getUserDataPost();
+                    }
                 }
+            },
+
+            getUserdb: () => {
+                fetch("http://localhost:5000/api/users", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log("db");
+                        console.log(data);
+                        setStore({
+                            userdb: data
+                        });
+
+                        getActions().checkUser();
+                    })
+                    .catch((error) => console.error(error));
+
+
             },
 
             getUserDataPost: () => {
@@ -91,9 +122,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((data) => console.log(data))
             },
 
-            getOtherProfile: () => {
+            getUserDataPut: (id) => {
                 let store = getStore();
-                fetch("https://api.spotify.com/v1/users/0h8o69aeq3z2rnl0ikqwtbbf0", {
+                fetch(`http://localhost:5000/api/user/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "name": store.profile.display_name,
+                        "email": store.profile.email,
+                        "followers": store.profile.followers.total
+                    })
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => console.log(data))
+            },
+
+            getOtherProfile: (id) => {
+                let store = getStore();
+                fetch(`https://api.spotify.com/v1/users/${id}`, {
                     headers: {
                         Accept: "application/json",
                         Authorization: `Bearer ${store.token}`,
