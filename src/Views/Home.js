@@ -7,7 +7,7 @@ function Home() {
     <>
       <div className="row p-5">
         <div className="container col-md ">
-          <h1 className="titulo-h1"> Escucha un top 50 canciones</h1>
+          <h1 className="titulo-h1 ml-5"> Hottest global 50 hits: </h1>
           <iframe
             src="https://open.spotify.com/embed/playlist/37i9dQZEVXbMDoHDwVN2tF"
             width="100"
@@ -15,7 +15,7 @@ function Home() {
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"
-            className="col-md playerhome"
+            className="col-md playerhome rounded"
           ></iframe>
         </div>
 
@@ -25,7 +25,7 @@ function Home() {
             className="carousel slide"
             data-ride="carousel"
           >
-            <div className="carousel-inner">
+            <div className="carousel-inner rounded lilshadow">
               <div className="carousel-item active">
                 <img
                   src="https://www.curacaonorthseajazz.com/-/media/northseajazz/curacao/program/2014/shot_03_172.jpg"
