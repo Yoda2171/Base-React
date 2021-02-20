@@ -3,10 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 import Player from "../Components/Player";
 import { Context } from "../store/appContext";
 
-function Chat() {
+function Chat(props) {
 
   const { store, actions } = useContext(Context);
-    /* console.log(store.token) */
     
     const history = useHistory();
     
@@ -18,9 +17,6 @@ function Chat() {
     <>
       <div className="container-fluid mt-4">
         <div className="row">
-          <div className="col-md-3">
-            <Player />
-          </div>
           <div className="col-md-3">
             <div className="list-group">
               <Link

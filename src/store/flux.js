@@ -72,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getOtherProfile: () => {
         let store = getStore();
-        fetch("https://api.spotify.com/v1/users/0h8o69aeq3z2rnl0ikqwtbbf0", {
+        fetch(`https://api.spotify.com/v1/users/0h8o69aeq3z2rnl0ikqwtbbf0`, {
           headers: {
             Accept: "application/json",
             Authorization: `Bearer ${store.token}`,
@@ -83,19 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => console.log(data))
           .error((error) => console.error(error));
       },
-      getUserArtists: () => {
-        let store = getStore();
-        fetch("https://api.spotify.com/v1/me/tracks", {
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${store.token}`,
-            "Content-Type": "application/json",
-          },
-        })
-          .then((resp) => resp.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.error(error));
-      },
+      
       search: (input) => {
         let store = getStore();
         fetch(`https://api.spotify.com/v1/search?query=${input}&type=artist&market=US&limit=1`, {
@@ -132,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   .then(response => response.json())
                   .then(data => {
                     console.log('albun', data);
-                    const tracks = data.items;
+                    const tracks = data.items ;
                     setStore({
                       tracks:tracks
                     })

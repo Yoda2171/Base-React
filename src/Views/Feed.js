@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
     
-function Feed() {
+function Feed(props) {
     const { store, actions } = useContext(Context);
     /* console.log(store.token) */
     
@@ -21,10 +21,6 @@ function Feed() {
         <>
             <div className="container">
                 <div className="row mt-5">
-                    <div className="col-md-5 mt-5 mr-5">
-                        <Player />
-                    </div>
-
                     <div className="col-md">
                         <div className="card-header rounded-pill ">
                             <div className="row">
