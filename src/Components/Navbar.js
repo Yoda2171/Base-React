@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useHistory, withRouter } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Player from "./Player";
 
 function Navbar() {
   const { store, actions } = useContext(Context);
@@ -46,19 +47,35 @@ function Navbar() {
                       <strong>Chats</strong>
                     </Link>
                   </li>
+
+
                 </ul>) : (null)}
             {!!store.profile &&
               store.profile ? (
-                <div className="dropdown">
-                  <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i className="fas fa-user-circle m-0"></i>
-                  </a>
+                <>
+                  <ul className="navbar-nav mt-2 mt-lg-0">
+                    <li className="nav-item">
+                      <Player />
+                    </li>
+                  </ul>
 
+                  <div className="dropdown">
+                    <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i className="fas fa-user-circle m-0"></i>
+                    </a>
+
+<<<<<<< HEAD
                   <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
                     <Link className="dropdown-item" to="/profile">Profile</Link>
                     <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+=======
+                    <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
+                      <Link className="dropdown-item" to="/profile/id">Profile</Link>
+                      <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+                    </div>
+>>>>>>> 0394afb393d7d6c9543daaca701542c57b6b71a3
                   </div>
-                </div>) : (
+                </>) : (
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link className="nav-link" id="login" to="/login">
