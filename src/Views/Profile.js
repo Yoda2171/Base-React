@@ -31,14 +31,23 @@ function Profile() {
         <div className="card-body list-group-flush">
           <li className="list-group-item border-success ">
             <i class="fas fa-users"></i>{" "}
-            {!!store.profile && store.profile.followers.total}
+            {!!store.profile && store.profile.followers.total} Seguidores 
           </li>
           <li className="list-group-item border-success">
-            <i class="fas fa-music" onClick={actions.getUserArtists}></i>{" "}
-            {/* {!!store.artists && store.artists} */}
+            <i class="fas fa-music mt-2 mb-3"></i>{" "} Recientes
+            {!!store.profile && 
+              store.recentTracks.items.slice(0, 4).map((index, key) => {
+                return <p className='bg-success text-white rounded p-2 d-flex justify-content-center' key={key}> {index.track.name} </p>
+              })
+            }
           </li>
           <li className="list-group-item border-success">
-            Gustos Musicales: Pop
+          <i class="fas fa-microphone mt-2 mb-2"></i>{" "} Top Artistas
+            {!!store.profile &&
+            store.topArtists.items.slice(0, 4).map((index, key) => {
+              return <p className='bg-success text-white rounded p-2 d-flex justify-content-center' key={key}>{index.name}</p>
+            })
+            }
           </li>
           <button
             type="button"

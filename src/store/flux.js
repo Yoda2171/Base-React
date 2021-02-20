@@ -7,6 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: null,
             profile: null,
             error: null,
+            recentTracks: null,
+            topArtists: null,
             userdb: [],
             REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
             REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
@@ -24,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             handleLogin: () => {
                 let store = getStore();
-                window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=user-read-private%20user-read-email%20playlist-read-private%20user-follow-read%20user-read-recently-played%20user-read-playback-state%20user-read-currently-playing&state=34fFs29kd09`;
+                window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=user-read-private%20user-read-email%20playlist-read-private%20user-follow-read%20user-read-recently-played%20user-read-playback-state%20user-read-currently-playing%20user-top-read&state=34fFs29kd09`;
             },
 
             getToken: (history) => {
@@ -68,6 +70,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => console.error(error));
                 console.log(store.profile)
+                getActions().getUserRecentTracks();
+                getActions().getUserTopArtists();
             },
 
             checkUser: () => {
@@ -152,9 +156,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((data) => console.log(data))
                     .error((error) => console.error(error));
             },
-            getUserArtists: () => {
+            getUserRecentTracks: () => {
                 let store = getStore();
-                fetch("https://api.spotify.com/v1/me/tracks", {
+                fetch("https://api.spotify.com/v1/me/player/recently-played", {
                     headers: {
                         Accept: "application/json",
                         Authorization: `Bearer ${store.token}`,
@@ -162,8 +166,25 @@ const getState = ({ getStore, getActions, setStore }) => {
                     },
                 })
                     .then((resp) => resp.json())
-                    .then((data) => console.log(data))
-                    .catch((error) => console.error(error));
+                    .then((data) => setStore({
+                        recentTracks: data
+                    }))
+                    .catch((error) => console.error(error))
+            },
+            getUserTopArtists: () => {
+                let store = getStore();
+                fetch("https://api.spotify.com/v1/me/top/artists", {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${store.token}`,
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => setStore({
+                        topArtists: data
+                    }))
+                    .catch((error) => console.error(error))
             },
             search: (input) => {
                 let store = getStore();
