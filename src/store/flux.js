@@ -111,12 +111,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: {
+                    body: JSON.stringify({
                         "user_id": store.profile.id,
                         "name": store.profile.display_name,
                         "email": store.profile.email,
                         "followers": store.profile.followers.total
-                    }
+                    })
                 })
                     .then((resp) => resp.json())
                     .then((data) => console.log(data))
@@ -152,6 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((data) => console.log(data))
                     .error((error) => console.error(error));
             },
+            
             getUserArtists: () => {
                 let store = getStore();
                 fetch("https://api.spotify.com/v1/me/tracks", {

@@ -55,7 +55,7 @@ function Navbar() {
                   </a>
 
                   <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
-                    <Link className="dropdown-item" to="/profile/id">Profile</Link>
+                    <Link className="dropdown-item" to="/profile">Profile</Link>
                     <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
                   </div>
                 </div>) : (
