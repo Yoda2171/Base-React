@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CardFeed from "../Components/CardFeed";
 import "../App.css";
 import Player from "../Components/Player";
@@ -14,6 +14,12 @@ function Feed() {
   useEffect(() => {
     if (store.token === null) history.push("/login");
   }, []);
+
+  const [post, setPost] = useState(null);
+
+  function captureText(e) {
+    setPost(e.target.value);
+  }
 
   return (
     <>
@@ -45,11 +51,6 @@ function Feed() {
               </div>
             </div>
             <div className="row mb-2 mt-2">
-              <div className="col-md col-sm">
-                <CardFeed />
-              </div>
-            </div>
-            <div className="row">
               <div className="col-md col-sm">
                 <CardFeed />
               </div>
@@ -100,11 +101,12 @@ function Feed() {
               <textarea
                 className="w-100 border-0 mt-4"
                 type="text"
-                placeholder="¿Que estas pensando, Marisleidis?"
+                placeholder="¿Que estas pensando?"
+                onChange={(e) => captureText(e)}
               ></textarea>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-success">
+              <button type="button" className="btn btn-success" onClick={() => actions.createPost(post)}>
                 Post
               </button>
             </div>

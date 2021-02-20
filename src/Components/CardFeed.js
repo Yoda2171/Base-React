@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import '../App.css';
 import { Context } from '../store/appContext';
 
-function CardFeed() {
+function CardFeed(props) {
 
     const { store } = useContext(Context);
 

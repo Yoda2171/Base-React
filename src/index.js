@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './index.css';
 import 'jquery';
-import 'popper.js';
+import '@popperjs/core';
 import 'bootstrap';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

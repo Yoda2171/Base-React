@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             error: null,
             recentTracks: null,
             topArtists: null,
+            postList: [],
             userdb: [],
             REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
             REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
@@ -115,12 +116,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: {
+                    body: JSON.stringify({
                         "user_id": store.profile.id,
                         "name": store.profile.display_name,
                         "email": store.profile.email,
                         "followers": store.profile.followers.total
-                    }
+                    })
                 })
                     .then((resp) => resp.json())
                     .then((data) => console.log(data))
@@ -229,12 +230,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
                             })
                     );
-
-
-
-
             },
-
             logOut: (history) => {
                 sessionStorage.removeItem('access_token');
                 setStore({
@@ -243,6 +239,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                     error: null
                 })
                 history.push('/login');
+            },
+            createPost: (inputValue) => {
+                let store = getStore();
+
+                fetch("https://localhost:5000/api/posts", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "commentary": inputValue,
+                        "user_id":  store.profile.id
+                    })
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => console.log(data))
+                    .catch((error) => console.error(error))
+            },
+            getPosts: () => {
+
             }
         },
     };
