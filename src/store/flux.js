@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
             checkUser: () => {
-                
+
                 const { profile, userdb } = getStore();
                 if (profile !== null && userdb !== null) {
                     const user = userdb.find(user => profile.id === user.user_id);
@@ -243,14 +243,15 @@ const getState = ({ getStore, getActions, setStore }) => {
             createPost: (inputValue) => {
                 let store = getStore();
 
-                fetch("https://localhost:5000/api/posts", {
+                fetch("http://localhost:5000/api/posts", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
+                        "name": store.profile.display_name,
                         "commentary": inputValue,
-                        "user_id":  store.profile.id
+                        "user_id": store.profile.id
                     })
                 })
                     .then((resp) => resp.json())
@@ -258,8 +259,21 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.error(error))
             },
             getPosts: () => {
+                fetch("http://localhost:5000/api/posts", {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-            }
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        setStore({
+                            postList: data
+                        })
+                        console.log(data)
+                    })
+                    .catch((error) => console.error(error))
+            },
         },
     };
 };
