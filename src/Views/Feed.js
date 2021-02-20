@@ -13,6 +13,7 @@ function Feed() {
 
   useEffect(() => {
     if (store.token === null) history.push("/login");
+    actions.getPosts()
   }, []);
 
   const [post, setPost] = useState(null);
@@ -52,7 +53,17 @@ function Feed() {
             </div>
             <div className="row mb-2 mt-2">
               <div className="col-md col-sm">
-                <CardFeed />
+                <ul>
+                  {
+                    !!store.postList &&
+                    store.postList.map((index, i) => {
+                      return (
+                        <CardFeed commentary={index.commentary} name={index.name} />
+                      );
+                    })
+                  }
+
+                </ul>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { Context } from '../store/appContext';
 
 function CardFeed(props) {
 
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
 
     return (
         <div className="row p-2">
@@ -17,14 +17,16 @@ function CardFeed(props) {
                                 </div>
                             </div>
                             <div className="col-md col-sm mt-4">
-                                <div className="text-white"><strong>Marisleidis Perdomo</strong></div>
+                                <div className="text-white"><strong>{props.name}</strong></div>
                             </div>
                         </div>
                     </div>
                     <div className="card-body">
-                        Katy Perry me encanta
+                        {props.commentary}
                     </div>
-                    <div className="card-footer"></div>
+                    <div className="card-footer">
+                    <button className="fa fa-heart mr-2 border-0" aria-hidden="true"></button>
+                    </div>
                 </div>
             </div>
         </div>
