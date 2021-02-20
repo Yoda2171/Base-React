@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import Player from "../Components/Player";
 import { Context } from "../store/appContext";
 
-function Friends() {
+function Friends(props) {
   const { store, actions } = useContext(Context);
   const history = useHistory();
 
@@ -14,9 +14,7 @@ function Friends() {
   return (
     <>
       <div className="row">
-        <div className="col-md">
-          <Player />
-        </div>
+        
         <div className="col-md">
           <div className="list-group">
             <Link
