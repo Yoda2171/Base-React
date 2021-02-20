@@ -102,7 +102,7 @@ function Feed() {
                 className="w-100 border-0 mt-4"
                 type="text"
                 placeholder="¿Que estas pensando?"
-                onChange={(e) => captureText(e)}
+                onChange={captureText}
               ></textarea>
             </div>
             <div className="modal-footer">
