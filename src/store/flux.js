@@ -117,7 +117,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "name": store.profile.display_name,
                         "email": store.profile.email,
                         "followers": store.profile.followers.total,
-                        "photo": store.profile.images[0].url
+                        "photo": store.profile.images[0].url,
+                        "recentTracks": store.recentTracks
                     })
                 })
                 .then((resp) => resp.json())
@@ -135,7 +136,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "name": store.profile.display_name,
                         "email": store.profile.email,
                         "followers": store.profile.followers.total,
-                        "photo": store.profile.images[0].url
+                        "photo": store.profile.images[0].url,
+                        "recentTracks": store.recentTracks.items
                     })
                 })
                     .then((resp) => resp.json())
@@ -164,11 +166,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "Content-Type": "application/json",
                     },
                 })
-                    .then((resp) => resp.json())
-                    .then((data) => setStore({
-                        recentTracks: data
-                    }))
-                    .catch((error) => console.error(error))
+                .then((resp) => resp.json())
+                .then((data) => setStore({
+                    recentTracks: data
+                }))
+                .catch((error) => console.error(error))
+                console.log(store.recentTracks)
             },
             getUserTopArtists: () => {
                 let store = getStore();
@@ -210,7 +213,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                                 setStore({
                                     artista: artist
                                 });
-                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/top-tracks?country=US&`, {
+                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
@@ -220,7 +223,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                                     .then(response => response.json())
                                     .then(data => {
                                         console.log('artista', data);
-                                        const tracks = data.tracks;
+                                        const tracks = data.items;
                                         setStore({
                                             tracks: tracks
                                         })
