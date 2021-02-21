@@ -212,7 +212,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                                 setStore({
                                     artista: artist
                                 });
-                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
+                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=20`, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
