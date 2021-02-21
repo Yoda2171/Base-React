@@ -117,7 +117,8 @@ function Feed() {
               ></textarea>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-success" onClick={() => actions.createPost(post)}>
+            
+              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(post)}>
                 Post
               </button>
             </div>

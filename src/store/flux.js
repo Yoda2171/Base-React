@@ -252,7 +252,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                 })
                     .then((resp) => resp.json())
-                    .then((data) => console.log(data))
+                    .then((data) => {
+                    console.log(data)
+                    getActions().getPosts();
+                })
+                
                     .catch((error) => console.error(error))
             },
             getPosts: () => {
