@@ -13,7 +13,8 @@ function CardFeed(props) {
                     <div className="card-header bg-success">
                         <div className="row">
                             <div className="col-md col-sm">
-                                <div className="photoprofile">
+                                <div className="photoprofile col-md-4">
+                                    <img className="text-white" id="feedAvatar" src={props.photo}/>
                                 </div>
                             </div>
                             <div className="col-md col-sm mt-4">

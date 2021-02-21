@@ -23,8 +23,7 @@ function Navbar() {
             data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -50,8 +49,9 @@ function Navbar() {
 
 
                 </ul>) : (null)}
-            {!!store.profile &&
-              store.profile ? (
+            {
+              !!store.profile &&
+                store.profile ? (
                 <>
                   <ul className="navbar-nav mt-2 mt-lg-0">
                     <li className="nav-item">
@@ -64,18 +64,19 @@ function Navbar() {
                       <i className="fas fa-user-circle m-0"></i>
                     </a>
 
-<<<<<<< HEAD
-                  <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
-                    <Link className="dropdown-item" to="/profile">Profile</Link>
-                    <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
-=======
                     <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
-                      <Link className="dropdown-item" to="/profile/id">Profile</Link>
+                      <Link className="dropdown-item" to="/profile">Profile</Link>
                       <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+
+                      <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
+                        <Link className="dropdown-item" to="/profile">Profile</Link>
+                        <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+                      </div>
+
                     </div>
->>>>>>> 0394afb393d7d6c9543daaca701542c57b6b71a3
                   </div>
-                </>) : (
+
+                </> ) : (
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <Link className="nav-link" id="login" to="/login">
