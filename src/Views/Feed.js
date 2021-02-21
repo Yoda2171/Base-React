@@ -26,11 +26,8 @@ function Feed() {
     <>
       <div className="container">
         <div className="row mt-5">
-          <div className="col-md-5 mt-5 mr-5">
-            <Player />
-          </div>
 
-          <div className="col-md">
+          <div className="col-md-8 m-auto">
             <div className="card-header rounded-pill ">
               <div className="row">
                 <div className="col-md-2">
