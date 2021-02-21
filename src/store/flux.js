@@ -146,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getOtherProfile: (id) => {
                 let store = getStore();
-                fetch(`https://api.spotify.com/v1/users/${id}`, {
+                fetch(`https://api/users/${id}`, {
                     headers: {
                         Accept: "application/json",
                         Authorization: `Bearer ${store.token}`,
