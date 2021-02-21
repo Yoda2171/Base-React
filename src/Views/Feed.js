@@ -58,7 +58,7 @@ function Feed() {
                     !!store.postList &&
                     store.postList.map((index, i) => {
                       return (
-                        <CardFeed photo={index.user_photo} name={index.user_name} commentary={index.commentary} />
+                        <CardFeed photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
                     })
                   }

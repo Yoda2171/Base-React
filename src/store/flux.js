@@ -48,7 +48,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getUserData: () => {
                 let store = getStore();
-                console.log(store.token);
                 fetch("https://api.spotify.com/v1/me", {
                     headers: {
                         Accept: "application/json",
@@ -76,7 +75,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
             checkUser: () => {
-
                 const { profile, userdb } = getStore();
                 if (profile !== null && userdb !== null) {
                     const user = userdb.find(user => profile.id === user.user_id);
@@ -105,8 +103,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                         getActions().checkUser();
                     })
                     .catch((error) => console.error(error));
-
-
             },
 
             getUserDataPost: () => {
@@ -130,8 +126,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             
             getUserDataPut: (id) => {
                 let store = getStore();
-                console.log("imagen de perfil")
-                console.log(store.profile.images[0].url)
                 fetch(`http://localhost:5000/api/user/${id}`, {
                     method: "PUT",
                     headers: {
