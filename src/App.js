@@ -15,6 +15,7 @@ import Friends from './Views/Friends';
 import Home from './Views/Home';
 import Login from './Views/Login';
 import NotFound from './Views/NotFound';
+import OtherProfile from './Views/OtherProfile';
 import Profile from './Views/Profile';
 
 import Token from './Views/Token';
@@ -33,7 +34,8 @@ function App() {
             
             <Switch>
               <Route exact path="/tokenlogin2171" component={Token} />
-              <Route exact path="/profile/id" component={Profile} />
+              <Route exact path="/profile/:id" component={OtherProfile} />
+              <Route exact path="/profile" component={Profile} />
               <Route exact path="/chats" component={Chat} />
               <Route exact path="/friends" component={Friends} />
               <Route exact path="/feed/" component={Feed} />
