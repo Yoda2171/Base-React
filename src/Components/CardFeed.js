@@ -4,30 +4,23 @@ import { Context } from '../store/appContext';
 
 function CardFeed() {
 
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
 
     return (
-        <div className="row p-2">
-            <div className="col-md col-sm d-flex justify-content-center">
-                <div className="card cardfeed">
-                    <div className="card-header bg-success">
-                        <div className="row">
-                            <div className="col-md col-sm">
-                                <div className="photoprofile">
-                                </div>
-                            </div>
-                            <div className="col-md col-sm mt-4">
-                                <div className="text-white"><strong>Marisleidis Perdomo</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        Katy Perry me encanta
-                    </div>
-                    <div className="card-footer"></div>
+        <>
+            <div class="card border-success mb-3" style={{"max-width": "12rem;"}}>
+                <div class="card-header bg-transparent border-success">
+                    <img src={!!store.profile && store.profile.images[0].url} className="rounded-pill"></img>
+                </div> 
+                <div class="card-body text-success">
+                    <h5 class="card-title">Success card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
+                <div class="card-footer bg-transparent border-success">Footer</div>
             </div>
-        </div>
+
+
+        </>
     )
 }
 

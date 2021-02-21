@@ -32,13 +32,13 @@ function Feed(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="row mb-2 mt-2">
-                            <div className="col-md col-sm">
+                        <div className="row mb-3 mt-3 ">
+                            <div className="col-md ">
                                 <CardFeed />
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md col-sm">
+                            <div className="col-md ">
                                 <CardFeed />
                             </div>
                         </div>
