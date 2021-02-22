@@ -270,7 +270,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         setStore({
                             postList: data
                         })
-                        console.log(data)
+                        console.log(data);
                     })
                     .catch((error) => console.error(error))
             },

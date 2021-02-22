@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import "../App.css";
-import { Context } from "../store/appContext";
+import React, { useContext } from 'react'
+import { Link, useParams } from 'react-router-dom';
+import '../App.css';
+import { Context } from '../store/appContext';
 
 function CardFeed(props) {
   const { store, actions } = useContext(Context);
