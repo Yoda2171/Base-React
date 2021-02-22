@@ -14,46 +14,17 @@ function Friends(props) {
   return (
     <>
       <div className="row">
-        
         <div className="col-md">
           <div className="list-group">
-            <Link
-              onClick={actions.getOtherProfile}
-              className="list-group-item list-group-item-action d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Marisleidis Perdomo
-            </Link>
-
-            <Link
-              to="#"
-              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Name
-            </Link>
-            <Link
-              to="#"
-              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Name
-            </Link>
-            <Link
-              to="#"
-              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Name
-            </Link>
-            <Link
-              to="#"
-              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Name
-            </Link>
-            <Link
-              to="#"
-              className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-            >
-              <i className="fas fa-camera"></i> &nbsp; Name
-            </Link>
+            {!!store.userdb &&
+              store.userdb.map((valor, index) => {
+                let profileID = `/profile/${valor.user_id}`;
+                return (
+                  <Link key={index} className="list-group-item list-group-item-action d-flex justify-content-start" to={profileID} >
+                    <img className="rounded-circle" src={valor.photo} style={{"width": "100px"}}/> &nbsp; <h4 className="mt-4 nombrePeople">{valor.name}</h4>
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </div>

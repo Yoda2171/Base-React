@@ -37,8 +37,8 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/friends">
-                      <strong>Friends</strong>
+                    <Link className="nav-link" to="/people">
+                      <strong>People</strong>
                     </Link>
                   </li>
                   <li className="nav-item">

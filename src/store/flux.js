@@ -240,7 +240,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                                 setStore({
                                     artista: artist
                                 });
-                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
+                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=20`, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
@@ -302,7 +302,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         setStore({
                             postList: data
                         })
-                        console.log(data)
+                        console.log(data);
                     })
                     .catch((error) => console.error(error))
             },
