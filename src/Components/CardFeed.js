@@ -18,7 +18,6 @@ function CardFeed(props) {
                 <div className="col-md col-sm">
                   <div className="photoprofile col-md-4">
                     <Link to={profileID}>
-                      {" "}
                       <img
                         className="text-white"
                         id="feedAvatar"
@@ -44,19 +43,7 @@ function CardFeed(props) {
               ></button>
             </div>
           </div>
-          <div className="col-md col-sm mt-4">
-            <div className="text-white">
-              <strong>{props.name}</strong>
-            </div>
-          </div>
         </div>
-      </div>
-      <div className="card-body">{props.commentary}</div>
-      <div className="card-footer">
-        <button
-          className="fa fa-heart mr-2 border-0"
-          aria-hidden="true"
-        ></button>
       </div>
     </>
   );

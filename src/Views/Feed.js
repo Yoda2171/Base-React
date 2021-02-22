@@ -36,7 +36,7 @@ function Feed() {
                     alt="fotito"
                   />
                 </div>
-                <div className="col-md col-sm">
+                <div className="col-md col-sm mt-5">
                   <input
                     className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill"
                     type="button"
