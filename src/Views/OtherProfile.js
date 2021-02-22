@@ -2,17 +2,18 @@ import React, { useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
-function OtherProfile() {
+function OtherProfile(props) {
 
         
 
     const { store, actions } = useContext(Context);
-
+    
     const history = useHistory();
-
+    
     useEffect(() => {
         if (store.profile === null) history.push("/login");
     }, []);
+
 
     return (
         <>
@@ -27,7 +28,7 @@ function OtherProfile() {
                         id="profileAvatar"
                     />
                     <h1 className="text-white d-inline-block ml-4">
-                        {}
+                        
                     </h1>
                 </div>
                 <div className="card-body list-group-flush">
