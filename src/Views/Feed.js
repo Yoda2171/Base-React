@@ -16,7 +16,7 @@ function Feed() {
     actions.getPosts()
   }, []);
 
-  const [post, setPost] = useState(null);
+  const [inputPost, setPost] = useState(null);
 
   function captureText(e) {
     setPost(e.target.value);
@@ -114,7 +114,7 @@ function Feed() {
             </div>
             <div className="modal-footer">
             
-              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(post)}>
+              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(inputPost)}>
                 Post
               </button>
             </div>

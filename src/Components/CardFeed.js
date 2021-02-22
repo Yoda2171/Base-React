@@ -6,10 +6,8 @@ import { Context } from '../store/appContext';
 function CardFeed(props) {
 
     const { store, actions } = useContext(Context);
-
-     
-
-    let profileID = `/profile/${props.id} ` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
+  
+    let profileID = `/profile/${props.id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
 
     return (
         <>
@@ -20,7 +18,7 @@ function CardFeed(props) {
                         <div className="row">
                             <div className="col-md col-sm">
                                 <div className="photoprofile col-md-4">
-                                    <img className="text-white" id="feedAvatar" src={props.photo}/>
+                                    <Link to={profileID}> <img className="text-white" id="feedAvatar" src={props.photo}/></Link>
                                 </div>
                             </div>
                             <div className="col-md col-sm mt-4">
