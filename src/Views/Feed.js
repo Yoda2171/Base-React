@@ -26,8 +26,7 @@ function Feed() {
     <>
       <div className="container">
         <div className="row mt-5">
-
-          <div className="col-md-8 m-auto">
+          <div className="col-md">
             <div className="card-header rounded-pill ">
               <div className="row">
                 <div className="col-md-2">
@@ -55,7 +54,7 @@ function Feed() {
                     !!store.postList &&
                     store.postList.map((index, i) => {
                       return (
-                        <CardFeed key={i} commentary={index.commentary} name={index.name} />
+                        <CardFeed key={i} id={index.user_id} photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
                     })
                   }
@@ -114,7 +113,8 @@ function Feed() {
               ></textarea>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-success" onClick={() => actions.createPost(post)}>
+            
+              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(post)}>
                 Post
               </button>
             </div>

@@ -27,14 +27,12 @@ function App() {
 
         <BrowserRouter>
           <Navbar />
-
-          
           
           <div className="container-fluid">
             
             <Switch>
               <Route exact path="/tokenlogin2171" component={Token} />
-              <Route exact path="/profile/:id" component={OtherProfile} />
+              <Route exact path="/profile/:slug" component={OtherProfile} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/chats" component={Chat} />
               <Route exact path="/friends" component={Friends} />

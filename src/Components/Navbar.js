@@ -23,8 +23,7 @@ function Navbar() {
             data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -50,34 +49,42 @@ function Navbar() {
 
 
                 </ul>) : (null)}
-            {!!store.profile &&
-              store.profile ? (
-                <>
-                  <ul className="navbar-nav mt-2 mt-lg-0">
+            {
+              !!store.profile &&
+                store.profile ? (
+                  <>
+                    <ul className="navbar-nav mt-2 mt-lg-0">
+                      <li className="nav-item">
+                        <Player />
+                      </li>
+                    </ul>
+
+                    <div className="dropdown">
+                      <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fas fa-user-circle m-0"></i>
+                      </a>
+
+                      <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
+                        <Link className="dropdown-item" to="/profile">Profile</Link>
+                        <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+
+                        <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
+                          <Link className="dropdown-item" to="/profile">Profile</Link>
+                          <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </>) : (
+                  <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                      <Player />
+                      <Link className="nav-link" id="login" to="/login">
+                        <strong>Login</strong>
+                      </Link>
                     </li>
                   </ul>
-
-                  <div className="dropdown">
-                    <a className="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i className="fas fa-user-circle m-0"></i>
-                    </a>
-
-                    <div className="dropdown-menu ml-auto" aria-labelledby="dropdownMenuLink">
-                      <Link className="dropdown-item" to="/profile">Profile</Link>
-                      <button className="dropdown-item" onClick={() => actions.logOut(history)}>Log Out </button>
-                    </div>
-                  </div>
-                </>) : (
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <Link className="nav-link" id="login" to="/login">
-                      <strong>Login</strong>
-                    </Link>
-                  </li>
-                </ul>
-              )}
+                )}
           </div>
         </div>
       </nav>
