@@ -1,85 +1,45 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Socket } from "socket.io-client";
 import Player from "../Components/Player";
+import RoomChat from "../Components/RoomChat";
 import { Context } from "../store/appContext";
+import Friends from "./Friends";
+import { io } from "socket.io-client";
 
 function Chat(props) {
 
   const { store, actions } = useContext(Context);
-    
-    const history = useHistory();
-    
-    useEffect(() => {
-        if (store.profile === null) history.push('/login');
-      }, []);
-      
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (store.profile === null) history.push('/login');
+  }, []);
+
+ 
+
   return (
     <>
-      <div className="container-fluid mt-4">
-        <div className="row">
-          <div className="col-md-3">
-            <div className="list-group">
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
-              <Link
-                to="#"
-                className="list-group-item list-group-item-action list-group-item d-flex justify-content-center"
-              >
-                <i className="fas fa-camera"></i> &nbsp; Name
-              </Link>
+      <RoomChat />
+      {/* <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">friend</a>
+              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">friend</a>
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">friend</a>
+              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">friend</a>
             </div>
           </div>
-          <div className="col-md-6">
-            <div className="card w-100 h-75 bg-success">
-              <div className="card-body">
-                <h5 className="card-title text-white"><i className="fas fa-camera"></i> Name </h5>
-                <p className="card-text text-white bubble">
-                  <strong>Hello!</strong>
-                </p>
-                <p className="card-text text-white bubble">
-                  <strong>Hi!</strong>
-                </p>
-              </div>
-              <input type="text" placeholder="Type something..." className="card-footer bg-white rounded msgBox" />
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><RoomChat/></div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><RoomChat/></div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list"><RoomChat/></div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"><RoomChat/></div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
     </>
   );
 }

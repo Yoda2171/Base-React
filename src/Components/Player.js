@@ -1,9 +1,11 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, StrictMode, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 function Player() {
   const { actions, store } = useContext(Context)
+
+  const [url, setUrl] = useState()
 
   const [input, setInput] = useState()
 
@@ -15,21 +17,51 @@ function Player() {
     <>
       <Fragment>
 
-        
-          <li className="nav-item ">
+
+        <li className="nav-item ">
           <div className="input-group">
             <div className="input-group-prepend">
-              <button className="input-group-text bg-success text-white" data-toggle="modal" data-target="#Player" id="inputGroup-sizing-default"  onClick={() => actions.search(input)}><i className="fas fa-search"></i></button>
+              <button className="input-group-text bg-success text-white" data-toggle="modal" data-target="#Player" id="inputGroup-sizing-default"
+                onClick={() => {
+
+                  actions.searchArtist(input)
+                  /* actions.searchTracks(input) */
+                  
+
+                  /* if (store.artista === null) {
+                    actions.searchTracks(input) 
+                    setUrl(`https://open.spotify.com/embed/track/${store.albums.id}`)
+                  }
+                  else {
+                    actions.searchArtist(input);
+                    setUrl(`https://open.spotify.com/embed/album/${store.albums.id}`)
+                  } */
+
+
+                }}
+              ><i className="fas fa-search"></i></button>
             </div>
             <input type="text" className="form-control" onChange={cambio} onKeyUp={(e) => {
               if (e.keyCode === 13) {
-                actions.search(input);
+
+                
+                /* if (store.tracks == null) {
+                
+                  actions.searchArtist(input);
+                  setUrl(`https://open.spotify.com/embed/album/${store.albums.id}`)
+
+                }
+                else {
+                  actions.searchTracks(input)
+                  setUrl(`https://open.spotify.com/embed/track/${store.tracks.id}`)
+                } */
+
               }
-            }} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Busca tu artista favorito"/>
+            }} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Busca tu artista favorito" />
           </div>
-        
-        
-        
+
+
+
           {/* <button type="button" className="btn btn-dark " data-toggle="modal" data-target="#Player">Buscar artista </button> */}
         </li>
 
@@ -42,26 +74,21 @@ function Player() {
 
 
                 <div className="card-body text-center">
-                  {/* <div className="row">
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <button className="input-group-text bg-success text-white" onClick={() => actions.search(input)} id="inputGroup-sizing-default"><i className="fas fa-search"></i></button>
-                      </div>
-                      <input type="text" className="form-control" onChange={cambio} onKeyUp={(e) => {
-                        if (e.keyCode === 13) {
-                          actions.search(input);
-                        }
-                      }} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Busca tu artista favorito" />
-                    </div>
-                  </div> */}
 
                   {
-                    !!store.tracks &&
-                    store.tracks.map((album, i) => {
-                      let urlID = `https://open.spotify.com/embed/album/${album.id}`
+                    !!store.albums &&
+                    store.albums.map((album, i) => {
+
+                      let urlIDalbum = `https://open.spotify.com/embed/album/${album.id}`
+                      /* let urlID = `https://open.spotify.com/embed/track/${album.id}` */
+
+
+
                       return (
                         <>
-                          <iframe key={i} src={urlID} className="mb-3" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                          <iframe key={i}
+                            src={urlIDalbum}
+                            className="mb-3" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         </>
                       )
                     })
@@ -75,7 +102,7 @@ function Player() {
 
               <div className="modal-footer">
                 <button type="button" className="btn btn-success" data-dismiss="modal">Close</button>
-                
+
               </div>
             </div>
           </div>

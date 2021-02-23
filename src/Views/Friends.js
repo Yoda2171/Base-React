@@ -1,15 +1,20 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Player from "../Components/Player";
 import { Context } from "../store/appContext";
 
 function Friends(props) {
   const { store, actions } = useContext(Context);
   const history = useHistory();
+  
+  const {slug} = useParams()
 
   useEffect(() => {
     if (store.profile === null) history.push("/login");
   }, []);
+
+
+   let urlID = `/profile/${store.postList.user_ids}`
 
   return (
     <>

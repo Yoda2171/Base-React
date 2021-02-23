@@ -4,9 +4,11 @@ import "../App.css";
 import { Context } from "../store/appContext";
 
 function CardFeed(props) {
+
+
   const { store, actions } = useContext(Context);
 
-  let profileID = `/profile/${props.id}`; //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS
+  let profileID = `/profile/${props.id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
 
   return (
     <>
@@ -27,26 +29,21 @@ function CardFeed(props) {
                   </div>
                 </div>
                 <div className="col-md col-sm mt-4">
-                  <div className="text-white">
-                    <Link to={profileID}>
-                      <strong>{props.name}</strong>
-                    </Link>
-                  </div>
+                  <div className="text-white"><Link to={profileID}><strong>{props.name}</strong></Link></div>
                 </div>
               </div>
             </div>
-            <div className="card-body">{props.commentary}</div>
+            <div className="card-body">
+              {props.commentary}
+            </div>
             <div className="card-footer">
-              <button
-                className="fa fa-heart mr-2 border-0"
-                aria-hidden="true"
-              ></button>
+              <button className="fa fa-heart mr-2 border-0" aria-hidden="true"></button>
             </div>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export default CardFeed;
