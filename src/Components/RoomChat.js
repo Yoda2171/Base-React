@@ -4,7 +4,6 @@ import socketIOClient from "socket.io-client";
 
 function RoomChat() {
 
-    /* const [message, setMessage] = useState() */
 
     const socket = io("http://localhost:5000/");
     socket.on("connect", () => {
@@ -21,8 +20,12 @@ function RoomChat() {
             console.log(datos);
             e.target.value = "";
         }
+    };
 
-    }
+    socket.on('response', msg => {
+        console.log(msg)
+        
+    })
 
 
     return (
