@@ -1,3 +1,4 @@
+import { get } from "jquery";
 import { token } from "../Views/Feed";
 const getState = ({ getStore, getActions, setStore }) => {
 
@@ -5,12 +6,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             otherProfile: null,
             tracks: null,
+            albums: null,
             artista: null,
             token: null,
             profile: null,
             error: null,
             recentTracks: null,
             topArtists: null,
+            otherFollowersID: null,
             postList: [],
             userdb: [],
             REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
@@ -42,7 +45,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 });
 
                 sessionStorage.setItem("access_token", token);
-                console.log(token);
 
                 history.push("/feed");
             },
@@ -70,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         }
                     })
                     .catch((error) => console.error(error));
-                console.log(store.profile)
+
                 getActions().getUserRecentTracks();
                 getActions().getUserTopArtists();
             },
@@ -95,8 +97,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                     .then((resp) => resp.json())
                     .then((data) => {
-                        console.log("db");
-                        console.log(data);
                         setStore({
                             userdb: data
                         });
@@ -148,23 +148,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((data) => console.log(data))
             },
 
-            updateFollowers: (id) => {
-                let store = getStore();
-                fetch(`http://localhost:5000/api/user/${id}`, {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        "followers": store.otherProfile.followers
-
-                    })
-                })
-                    .then((resp) => resp.json())
-                    .then((data) => console.log(data))
-
-            },
-
             getUserDataOther: (slug) => {
 
                 fetch(`http://localhost:5000/api/user/${slug}`, {
@@ -179,7 +162,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         setStore({
                             otherProfile: data
                         })
-                        console.log(data)
+
                     })
             },
 
@@ -197,7 +180,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         recentTracks: data
                     }))
                     .catch((error) => console.error(error))
-                console.log(store.recentTracks)
+
             },
 
             getUserTopArtists: () => {
@@ -216,7 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => console.error(error))
             },
 
-            search: (input) => {
+            searchArtist: (input) => {
                 let store = getStore();
                 fetch(`https://api.spotify.com/v1/search?query=${input}&type=artist&market=US&limit=1`, {
                     method: 'GET',
@@ -224,42 +207,62 @@ const getState = ({ getStore, getActions, setStore }) => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${store.token}`,
                     },
-                    mode: 'cors',
-                    cache: 'default'
                 })
-
-                    .then(response =>
-                        Promise.resolve({
-                            data: response.json(),
-                            status: response.status
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        setStore({
+                            artista: data.artists.items[0]
                         })
-                            .then(post => post.data)
-                            .then(json => json.artists)
-                            .then(items => {
-                                console.log(items);
-                                const artist = items.items[0];
-                                setStore({
-                                    artista: artist
-                                });
-                                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
-                                    method: 'GET',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                        'Authorization': `Bearer ${store.token}`,
-                                    },
-                                })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        console.log('artista', data);
-                                        const tracks = data.items;
-                                        setStore({
-                                            tracks: tracks
-                                        })
-                                    })
-
-                            })
-                    );
+                        getActions().getAlbumArtists()
+                    })
+                    .catch((error) => console.error(error))
             },
+
+            getAlbumArtists: () => {
+                let store = getStore();
+                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${store.token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        
+                        const albums = data.items;
+                        
+                        setStore({
+                            albums: albums
+                        })
+                    })
+
+            },
+
+            searchTracks: (input) => {
+                let store = getStore();
+
+                fetch(`https://api.spotify.com/v1/search?q=${input}&type=track&market=US&limit=10`, {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${store.token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                       
+                        setStore({
+                            albums: data.tracks.items,
+                        })
+
+
+                    })
+                    .catch((error) => console.error(error))
+
+            },
+
             logOut: (history) => {
                 sessionStorage.removeItem('access_token');
                 setStore({
@@ -303,7 +306,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         setStore({
                             postList: data
                         })
-                        console.log(data)
+
                     })
                     .catch((error) => console.error(error))
             },
@@ -323,6 +326,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((resp) => resp.json())
                     .then((data) => {
                         console.log(data)
+                        getActions().getOtherFollowers(id)
                     })
                     .catch((error) => console.error(error))
             },
@@ -341,9 +345,48 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then((resp) => resp.json())
                     .then((data) => {
                         console.log(data)
+                        getActions().getOtherFollowers(id)
                     })
                     .catch((error) => console.error(error))
             },
+
+
+
+
+            getOtherFollowers: (id) => {
+                let store = getStore();
+                fetch(`https://api.spotify.com/v1/users/${id}`, {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${store.token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log(data)
+                        setStore({
+                            otherFollowersID: data
+                        })
+
+                    })
+                    .catch((error) => console.error(error))
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
