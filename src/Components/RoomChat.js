@@ -4,7 +4,7 @@ import socketIOClient from "socket.io-client";
 
 function RoomChat() {
 
-
+    const [mensaje, setMensaje] = useState("")
     const socket = io("http://localhost:5000/");
     socket.on("connect", () => {
         socket.emit("connected", "estamos conectados")
@@ -14,7 +14,7 @@ function RoomChat() {
         if (e.keyCode === 13) {
 
            let datos = {
-               mensaje: e.target.value  
+               message: e.target.value  
            }
             socket.send(datos);
             console.log(datos);
@@ -22,10 +22,14 @@ function RoomChat() {
         }
     };
 
-    socket.on('response', msg => {
+    socket.on("response" , msg => {
         console.log(msg)
-        
+
+        setMensaje(msg)
+
     })
+
+
 
 
     return (
@@ -35,10 +39,7 @@ function RoomChat() {
                     <div className="card-body">
                         <h5 className="card-title text-white"><i className="fas fa-camera"></i> Friends</h5>
                         <p className="card-text text-white bubble">
-                            <strong>Hello!</strong>
-                        </p>
-                        <p className="card-text text-white bubble">
-                            <strong>Hi!</strong>
+                            <strong>{mensaje.message}</strong>
                         </p>
                     </div>
 
