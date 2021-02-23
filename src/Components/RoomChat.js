@@ -1,6 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { io } from "socket.io-client";
+import socketIOClient from "socket.io-client";
 
 function RoomChat() {
+
+    const [message, setMessage] = useState()
+
+    /* const socket = io("http://localhost:5000/");
+    socket.on("connect", () => {
+        socket.emit("connected", "estamos conectados")
+    }) */
+
+    const handleMessage = (e) => {
+        if (e.keyCode === 13) {
+
+            setMessage({
+                message:e.target.value  
+
+            })
+
+            /* socket.emit('mensaje:', message) */
+            console.log(message)
+            e.target.value = ""
+
+
+        }
+
+    }
+
+
     return (
         <>
             <div className="col-md-6">
@@ -14,7 +42,9 @@ function RoomChat() {
                             <strong>Hi!</strong>
                         </p>
                     </div>
-                    <input type="text" placeholder="Type something..." className="card-footer bg-white rounded msgBox" />
+
+
+                    <input type="text" placeholder="Type something..." className="card-footer bg-white rounded msgBox" onKeyUp={handleMessage} />
                 </div>
             </div>
 

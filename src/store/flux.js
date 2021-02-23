@@ -306,7 +306,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                         setStore({
                             postList: data
                         })
-
                     })
                     .catch((error) => console.error(error))
             },

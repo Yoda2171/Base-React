@@ -1,22 +1,28 @@
-  import React, { useContext, useEffect } from "react";
-  import { Link, useHistory } from "react-router-dom";
-  import Player from "../Components/Player";
+import React, { useContext, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { Socket } from "socket.io-client";
+import Player from "../Components/Player";
 import RoomChat from "../Components/RoomChat";
-  import { Context } from "../store/appContext";
+import { Context } from "../store/appContext";
+import Friends from "./Friends";
+import { io } from "socket.io-client";
 
-  function Chat(props) {
+function Chat(props) {
 
-    const { store, actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
-    const history = useHistory();
+  const history = useHistory();
 
-    useEffect(() => {
-      if (store.profile === null) history.push('/login');
-    }, []);
+  useEffect(() => {
+    if (store.profile === null) history.push('/login');
+  }, []);
 
-    return (
-      <>
-        <div class="row">
+ 
+
+  return (
+    <>
+      <RoomChat />
+      {/* <div class="row">
           <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
               <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">friend</a>
@@ -33,9 +39,9 @@ import RoomChat from "../Components/RoomChat";
               <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"><RoomChat/></div>
             </div>
           </div>
-        </div>
-      </>
-    );
-  }
+        </div> */}
+    </>
+  );
+}
 
-  export default Chat;
+export default Chat;
