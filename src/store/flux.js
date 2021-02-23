@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             handleLogin: () => {
                 let store = getStore();
-                window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=user-read-private%20user-read-email%20playlist-read-private%20user-follow-read%20user-read-recently-played%20user-read-playback-state%20user-read-currently-playing%20user-top-read%20user-follow-modify&state=34fFs29kd09`;
+                window.location = `${store.REACT_APP_AUTHORIZE_URL}?client_id=${store.REACT_APP_CLIENT_ID}&redirect_uri=${store.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=user-read-private%20user-read-email%20playlist-read-private%20user-follow-read%20user-read-recently-played%20user-read-playback-state%20user-read-currently-playing%20user-top-read%20user-follow-modify%20user-follow-read&state=34fFs29kd09`;
             },
 
             getToken: (history) => {
@@ -221,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getAlbumArtists: () => {
                 let store = getStore();
-                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=10`, {
+                fetch(`https://api.spotify.com/v1/artists/${store.artista.id}/albums?market=US&limit=20`, {
                     headers: {
                         Accept: "application/json",
                         Authorization: `Bearer ${store.token}`,

@@ -20,7 +20,9 @@ function Feed() {
 
   function captureText(e) {
     setPost(e.target.value);
+  
   }
+
 
   return (
     <>
@@ -113,7 +115,7 @@ function Feed() {
               ></textarea>
             </div>
             <div className="modal-footer">
-            
+
               <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(post)}>
                 Post
               </button>
