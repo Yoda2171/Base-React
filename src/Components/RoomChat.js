@@ -3,26 +3,36 @@ import { io } from "socket.io-client";
 import socketIOClient from "socket.io-client";
 
 function RoomChat() {
-
-    /* const [message, setMessage] = useState() */
+ 
+    const [mensaje, setMensaje] = useState("")
 
     const socket = io("http://localhost:5000/");
     socket.on("connect", () => {
-        socket.emit("connected", "estamos conectados")
-    });
-
+        socket.emit("connected", "CONECTADO FRONT")
+    },[])
+    
     const handleMessage = (e) => {
+
         if (e.keyCode === 13) {
+            console.log(e.target.value)
+            let datos = {
+                message : e.target.value
+            } 
 
-           let datos = {
-               mensaje: e.target.value  
-           }
-            socket.send(datos);
-            console.log(datos);
-            e.target.value = "";
+            socket.send(datos)
+            e.target.value = ""
+
         }
-
+        socket.on("response" , msg => {
+            console.log(msg);
+            setMensaje(msg);
+            arrayMensajes.concat(msg);
+            console.log(arrayMensajes);
+        })
     }
+
+    let arrayMensajes = [];
+
 
 
     return (
@@ -32,11 +42,9 @@ function RoomChat() {
                     <div className="card-body">
                         <h5 className="card-title text-white"><i className="fas fa-camera"></i> Friends</h5>
                         <p className="card-text text-white bubble">
-                            <strong>Hello!</strong>
+                            <strong></strong>
                         </p>
-                        <p className="card-text text-white bubble">
-                            <strong>Hi!</strong>
-                        </p>
+                        
                     </div>
 
 
