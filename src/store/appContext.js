@@ -21,6 +21,7 @@ const injectContext = (PassedComponent) => {
       state.actions.isAuthenticated();
       state.actions.getUserData();
       state.actions.getUserdb();
+      /* state.actions.postFollowing(); */
       
     }, []);
 

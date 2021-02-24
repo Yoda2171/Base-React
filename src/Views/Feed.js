@@ -20,7 +20,9 @@ function Feed() {
 
   function captureText(e) {
     setPost(e.target.value);
+  
   }
+
 
   return (
     <>
