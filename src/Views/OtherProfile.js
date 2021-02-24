@@ -12,9 +12,7 @@ function OtherProfile(props) {
     
     useEffect(() => {
         if (store.profile === null) history.push("/login");
-        actions.getUserDataOther(slug)
-      
-        
+        actions.getUserDataOther(slug)  
 
     }, []);
 
@@ -81,16 +79,16 @@ function OtherProfile(props) {
                     <button
                         type="button"
                         className="btn btn-success btn-lg btn-block mt-5"
-                        onClick={()  => actions.followUser(slug)}
+                        onClick={()  => actions.postFriends(store.otherProfile.name, store.otherProfile.photo, slug)}
                     >
-                        Seguir
+                        Agregar amigo
                     </button>
                     <button
                         type="button"
                         className="btn btn-success btn-lg btn-block mt-5"
-                        onClick={()  => actions.unFollowUser(slug)}
+                        onClick={() => actions.deleteFriend(slug)}
                     >
-                        Dejar de seguir
+                        Eliminar como amigo
                     </button>
                 </div>
             </div>
