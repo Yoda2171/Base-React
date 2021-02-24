@@ -13,23 +13,17 @@ function CardFeed(props) {
   return (
     <>
       <div className="row p-2">
-        <div className="col-md col-sm d-flex justify-content-center">
+        <div className="col-md d-flex justify-content-center">
           <div className="card cardfeed">
             <div className="card-header bg-success">
               <div className="row">
-                <div className="col-md col-sm">
-                  <div className="photoprofile col-md-4">
-                    <Link to={profileID}>
-                      <img
-                        className="text-white"
-                        id="feedAvatar"
-                        src={props.photo}
-                      />
-                    </Link>
+                <div className="col-md ">
+                  <div className="photoprofile col-md-6">
+                    <Link to={profileID}> <img className="text-white" id="feedAvatar" src={props.photo} /></Link>
                   </div>
                 </div>
-                <div className="col-md col-sm mt-4">
-                  <div className="text-white"><Link to={profileID}><strong>{props.name}</strong></Link></div>
+                <div className="col-md mt-4">
+                  <div><Link className="text-white" to={profileID}><h5>{props.name}</h5></Link></div>
                 </div>
               </div>
             </div>
@@ -37,7 +31,8 @@ function CardFeed(props) {
               {props.commentary}
             </div>
             <div className="card-footer">
-              <button className="fa fa-heart mr-2 border-0" aria-hidden="true"></button>
+              <button className=" btn fa fa-heart" aria-hidden="true"></button>
+              
             </div>
           </div>
         </div>

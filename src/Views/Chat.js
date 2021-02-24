@@ -18,12 +18,43 @@ function Chat(props) {
     if (store.profile === null) history.push('/login');
   }, []);
 
-
+  let href = `#${!!store.otherProfile && store.otherProfile.user_id}`
 
   return (
     <>
-     
-      
+      <>
+      <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            {
+              !!store.userdb &&
+              store.userdb.map((value, i) => {
+                let href = `#${value.user_id}`;
+                return (
+                  <a key={i} class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href={href} role="tab" aria-controls="profile">{value.name}</a>
+                )
+              })
+            }
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            {
+              !!store.userdb &&
+              store.userdb.map((value, i) => {
+                return (
+                  <>
+                    <div key={i} class="tab-pane fade" id={value.user_id} role="tabpanel" aria-labelledby="list-profile-list"><RoomChat username={value.name} /></div>
+                  </>
+                )
+              })
+            }
+          </div>
+        </div>
+      </div>
+
+    </>
+
     </>
   );
 }
