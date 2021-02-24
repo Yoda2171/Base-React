@@ -14,8 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       topArtists: null,
       otherFollowersID: null,
       postList: [],
-      followId: [],
-      following: null,
+      followingDB: [],
+      following: [],
       userdb: [],
       REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             followers: store.profile.followers.total,
             photo: store.profile.images[0].url,
             recentTracks: store.recentTracks,
-            topArtists: store.topArtists
+            topArtists: store.topArtists,
           }),
         })
           .then((resp) => resp.json())
@@ -140,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             followers: store.profile.followers.total,
             photo: store.profile.images[0].url,
             recentTracks: store.recentTracks,
-            topArtists: store.topArtists
+            topArtists: store.topArtists,
           }),
         })
           .then((resp) => resp.json())
@@ -385,21 +385,60 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.error(error));
       },
-      postFollowing: () => {
+      postFriends: (name, photo, personId) => {
         let store = getStore();
-        let db = store.userdb;
 
-        /* fetch("http://") */
+        setStore({
+          following: store.following.concat({
+            name: name,
+            photo: photo,
+            personId: personId,
+            idPropia: store.profile.id,
+          }),
+        });
 
-        /* db.forEach((v) => {
-          getActions().getFollowId(v.user_id);
-          if (store.followId[0] === true) {
-            setStore({
-              following: [...v.name],
-            });
-          }
-        }); */
+        console.log(store.following);
+
+        store.following.forEach((v) => {
+          fetch(`http://localhost:5000/api/friends`, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify({
+              friends: v.name,
+              user_id: v.idPropia,
+              personId: v.personId,
+              photo: v.photo,
+            }),
+          });
+        });
       },
+      getFriends: () => {
+
+        fetch("http://localhost:5000/api/friends", {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({
+              followingDB: data
+            })
+          })
+      },
+      deleteFriend: (id) => {
+        fetch(`http://localhost:5000/api/friends/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+        .error(error => console.error(error))
+      }
     },
   };
 };
