@@ -121,7 +121,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             photo: store.profile.images[0].url,
             recentTracks: store.recentTracks,
             topArtists: store.topArtists
-            git 
           }),
         })
           .then((resp) => resp.json())
