@@ -15,11 +15,37 @@ function OtherProfile(props) {
     useEffect(() => {
         if (store.profile === null) history.push("/login");
         actions.getUserDataOther(slug)
-
+        checkfriends(slug)
+        
     }, []);
 
 
-    const button = store.followingDB.find((valor) => slug === valor.personID)
+    function checkfriends() {
+        let boton = store.followingDB.find((valor) =>  slug == valor.personId)
+
+        if (boton) {
+            setBoton(
+            <button
+                type="button"
+                className="btn btn-success btn-lg btn-block mt-5"
+                onClick={() => actions.deleteFriend(slug)}
+            >
+                Eliminar como amigo
+            </button>)
+
+        }
+        else {
+            setBoton(
+            <button
+                type="button"
+                className="btn btn-success btn-lg btn-block mt-5"
+                onClick={() => actions.postFriends(store.otherProfile.name, store.otherProfile.photo, slug)}
+            >
+                Agregar amigo
+            </button>)
+        }
+
+    }
 
     return (
         <>
@@ -80,13 +106,12 @@ function OtherProfile(props) {
                                 );
                             })}
                     </li>
+                    { boton}
+                        
+                        
 
-                    {
-                        !!store.followingDB &&
-                        store.followingDB.find((valor) => valor.personID)
-                        
-                        
-                    }
+                   
+                    
 
                 </div>
             </div>
