@@ -415,28 +415,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
       getFriends: () => {
-
         fetch("http://localhost:5000/api/friends", {
           headers: {
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         })
           .then((resp) => resp.json())
           .then((data) => {
             setStore({
-              followingDB: data
-            })
-          })
+              followingDB: data,
+            });
+          });
       },
       deleteFriend: (id) => {
-
         fetch(`http://localhost:5000/api/friends/${id}`, {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json"
-          }
-        })
-      }
+            "Content-Type": "application/json",
+          },
+        });
+      },
     },
   };
 };
