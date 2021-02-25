@@ -15,7 +15,7 @@ function OtherProfile(props) {
     useEffect(() => {
         if (store.profile === null) history.push("/login");
         actions.getUserDataOther(slug)
-        checkfriends(slug)
+        checkfriends()
         
     }, []);
 
@@ -106,7 +106,7 @@ function OtherProfile(props) {
                                 );
                             })}
                     </li>
-                    { boton}
+                    {boton}
                         
                         
 

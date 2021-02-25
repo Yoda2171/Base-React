@@ -7,7 +7,7 @@ function RoomChat(props) {
     const { store, actions } = useContext(Context)
 
 
-    const [mensaje, setMensaje] = useState("")
+    const [mensaje, setMensaje] = useState([])
 
 
     const [envio, setEnvio] = useState({})
@@ -23,10 +23,11 @@ function RoomChat(props) {
         if (e.keyCode === 13) {
             console.log(e.target.value)
 
-            let datos = {
+            let datos = [{
                 message: e.target.value,
                 username: store.profile.display_name
-            }
+            }] 
+
             setEnvio(datos)
             socket.send(datos)
             e.target.value = ""
@@ -46,10 +47,8 @@ function RoomChat(props) {
                     <div className="card-body bg-success">
                         <h5 className="card-title text-white"><i className="fas fa-camera"></i> {props.username}</h5>
 
-
+                        
                         <p className="card-text text-white bubble">
-
-                            
                             <strong>{mensaje.username} :</strong>  {mensaje.message}
                         </p>
 
