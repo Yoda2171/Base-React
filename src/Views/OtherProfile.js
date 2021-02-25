@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
@@ -9,15 +9,17 @@ function OtherProfile(props) {
     const { slug } = useParams();
 
     const history = useHistory();
-    
+
+    const [boton, setBoton] = useState()
+
     useEffect(() => {
         if (store.profile === null) history.push("/login");
         actions.getUserDataOther(slug)
-      
-        
 
     }, []);
 
+
+    const button = store.followingDB.find((valor) => slug === valor.personID)
 
     return (
         <>
@@ -28,7 +30,7 @@ function OtherProfile(props) {
                     <img
                         src={!!store.otherProfile && store.otherProfile.photo}
                         alt="Avatar"
-                        id="profileAvatar"/>
+                        id="profileAvatar" />
                     <h1 className="text-white d-inline-block ml-4">
                         {!!store.otherProfile && store.otherProfile.name}
                     </h1>
@@ -78,20 +80,14 @@ function OtherProfile(props) {
                                 );
                             })}
                     </li>
-                    <button
-                        type="button"
-                        className="btn btn-success btn-lg btn-block mt-5"
-                        onClick={()  => actions.followUser(slug)}
-                    >
-                        Seguir
-                    </button>
-                    <button
-                        type="button"
-                        className="btn btn-success btn-lg btn-block mt-5"
-                        onClick={()  => actions.unFollowUser(slug)}
-                    >
-                        Dejar de seguir
-                    </button>
+
+                    {
+                        !!store.followingDB &&
+                        store.followingDB.find((valor) => valor.personID)
+                        
+                        
+                    }
+
                 </div>
             </div>
         </>
