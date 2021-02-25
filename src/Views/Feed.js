@@ -7,10 +7,11 @@ import { useHistory } from "react-router-dom";
 
 function Feed() {
   const { store, actions } = useContext(Context);
-  /* console.log(store.token) */
+  
 
   const history = useHistory();
 
+  
   useEffect(() => {
     if (store.token === null) history.push("/login");
     actions.getPosts()
@@ -58,7 +59,7 @@ function Feed() {
                       return (
                         <CardFeed key={i} id={index.user_id} photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
-                    })
+                    }).reverse()
                   }
 
                 </ul>
