@@ -7,6 +7,7 @@ function RoomChat(props) {
   const { store, actions } = useContext(Context);
   const [mensaje, setMensaje] = useState("");
   const [envio, setEnvio] = useState({});
+  const [arrayMsg, setArrayMsg] = useState([]);
 
   const socket = io("http://localhost:5000/");
   socket.on("connect", () => {
@@ -29,6 +30,7 @@ function RoomChat(props) {
     socket.on("response", (msg) => {
       console.log(msg);
       setMensaje(msg);
+      setArrayMsg(arrayMsg.concat(msg));
     });
   };
 
@@ -40,10 +42,16 @@ function RoomChat(props) {
             <h5 className="card-title text-white">
               <i className="fas fa-camera"></i> {props.username}
             </h5>
-
-            <p className="card-text text-white bubble">
-              <strong>{mensaje.username} :</strong> {mensaje.message}
-            </p>
+            {!!arrayMsg &&
+              arrayMsg.map((valor, i) => {
+                return (
+                  <>
+                    <p key={i} className="card-text text-white bubble">
+                      <strong>{valor.username} :</strong> {valor.message}
+                    </p>
+                  </>
+                );
+              })}
 
             {/* {
                             mensaje.map((value, i) => 
