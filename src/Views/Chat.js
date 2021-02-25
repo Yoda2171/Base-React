@@ -13,7 +13,7 @@ function Chat(props) {
 
   useEffect(() => {
     if (store.profile === null) history.push("/login");
-    actions.getFriends();
+    actions.getFriends()
   }, []);
 
   return (
@@ -23,6 +23,7 @@ function Chat(props) {
           <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
               {!!store.followingDB &&
+                store.followingDB.length > 0 ? 
                 store.followingDB.map((value, i) => {
                   let href = `#${value.personId}`;
                   return (
@@ -43,7 +44,10 @@ function Chat(props) {
                       {value.friends}
                     </h4>
                   );
-                })}
+                }) : (
+                  <h1>No hay amigos aún...</h1>
+                  )
+              }
             </div>
           </div>
           <div class="col-8">

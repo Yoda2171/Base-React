@@ -400,7 +400,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(store.following);
 
         store.following.forEach((v) => {
-          fetch(`http://localhost:5000/api/friends`, {
+          fetch(`http://localhost:5000/api/friends/`, {
             headers: {
               "Content-Type": "application/json",
             },
@@ -411,7 +411,11 @@ const getState = ({ getStore, getActions, setStore }) => {
               personId: v.personId,
               photo: v.photo,
             }),
-          });
+          })
+            .then((resp) => resp.json())
+            .then(() => {
+              getActions().getFriends();
+            });
         });
       },
       getFriends: () => {
@@ -429,13 +433,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
       deleteFriend: (id) => {
-        fetch(`http://localhost:5000/api/friends/${id}`, {
+        let store = getStore();
+        fetch(`http://localhost:5000/api/friends/${store.profile.id}/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
           },
-        });
-        getActions().getFriends();
+        })
+          .then((resp) => resp.json())
+          .then(() => {
+            getActions().getFriends();
+          });
       },
     },
   };
