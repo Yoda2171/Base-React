@@ -415,7 +415,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
       getFriends: () => {
-        fetch("http://localhost:5000/api/friends", {
+        let store = getStore();
+        fetch(`http://localhost:5000/api/friends/${store.profile.id}`, {
           headers: {
             "Content-Type": "application/json",
           },
