@@ -39,11 +39,6 @@ function RoomChat(props) {
         })
     }
 
-    let arrayMensajes = [];
-
-
-
-
     return (
         <>
             <div className="col-md-6">
@@ -51,10 +46,6 @@ function RoomChat(props) {
                     <div className="card-body bg-success">
                         <h5 className="card-title text-white"><i className="fas fa-camera"></i> {props.username}</h5>
 
-                        <p className="card-text text-white bubble">
-                            <strong>{envio.username} :</strong>  {envio.message}
-
-                        </p>
 
                         <p className="card-text text-white bubble">
 

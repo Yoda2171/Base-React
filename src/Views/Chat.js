@@ -26,7 +26,9 @@ function Chat(props) {
             {
               !!store.userdb &&
               store.userdb.map((value, i) => {
+
                 let href = `#${value.user_id}`;
+                
                 return (
                   <a key={i} class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href={href} role="tab" aria-controls="profile">{value.name}</a>
                 )
