@@ -6,7 +6,6 @@ import { Context } from "../store/appContext";
 function Friends(props) {
   const { store, actions } = useContext(Context);
   const history = useHistory();
-
   const { slug } = useParams();
 
   useEffect(() => {
@@ -29,7 +28,7 @@ function Friends(props) {
                       <Link
                         key={index}
                         className="list-group-item list-group-item-action d-flex justify-content-start"
-                        to='/profile'
+                        to="/profile"
                       >
                         <img
                           className="rounded-circle"

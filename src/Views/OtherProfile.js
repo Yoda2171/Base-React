@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom';
-import { Context } from '../store/appContext';
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 function OtherProfile(props) {
 
@@ -119,4 +119,4 @@ function OtherProfile(props) {
     )
 }
 
-export default OtherProfile
+export default OtherProfile;
