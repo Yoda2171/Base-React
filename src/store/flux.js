@@ -429,15 +429,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
       },
       deleteFriend: (id) => {
+
         fetch(`http://localhost:5000/api/friends/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json"
           }
         })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .error(error => console.error(error))
       }
     },
   };
