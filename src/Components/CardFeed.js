@@ -30,9 +30,7 @@ function CardFeed(props) {
             <div className="card-body">
               {props.commentary}
             </div>
-            <div className="card-footer">
-              <button className=" btn fa fa-heart" aria-hidden="true"></button>
-              
+            <div className="card-footer bg-success">
             </div>
           </div>
         </div>
