@@ -385,6 +385,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.error(error));
       },
+
       postFriends: (name, photo, personId) => {
         let store = getStore();
 

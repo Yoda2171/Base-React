@@ -17,7 +17,7 @@ function Profile() {
   return (
     <>
       <div
-        className="card border-success mb-3 m-auto"
+        className="card border-success mb-3 m-auto shadow"
         style={{ "max-width": "38rem" }}
       >
         <div className="card-header bg-success border-success py-3">
@@ -44,7 +44,7 @@ function Profile() {
                     <span
                       key={key}
                       type="button"
-                      class="btn btn-success mx-1 ml-2 mt-2 mb-2"
+                      class="btn btn-success mx-1 ml-2 mt-2 mb-2 rounded-pill shadow"
                     >
                       {index.track.name} - {index.track.artists[0].name}
                     </span>
@@ -59,7 +59,7 @@ function Profile() {
                 return (
                   <>
                     <p
-                      className="bg-success text-white rounded p-2 ml-3"
+                      className="bg-success text-white rounded p-2 ml-3 profiledown"
                       key={key}
                     >
                       <span className="mr-4">
