@@ -8,7 +8,7 @@ function Heading() {
             <div className="col-md">
                 <h1 className="titulo-h1">Escuchas a tus artistas favoritos y habla con tus amigos</h1>
                 <hr />
-                <p>Si eres un usuario casual de Spotify, amaras "Facetify", una applicacion para poder escuchar todas las canciones de tus artistas favorito mientras
+                <p>Si eres un usuario casual de Spotify, amaras "TrackRush", una applicacion para poder escuchar todas las canciones de tus artistas favorito mientras
                     hablas con tus mejores amigos. al igual que Spotify tambien puedes compartir tus canciones favoritas y tambien compartirlas con tus amigos </p>
             </div>
             <div className="col-md">

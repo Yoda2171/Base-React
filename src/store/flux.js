@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       followingDB: [],
       following: [],
       userdb: [],
-      REACT_APP_CLIENT_ID: "67aafa4a55a5406cbb5a1df8096f0448",
+      REACT_APP_CLIENT_ID: "e6dd68b952104e71a1d03485ee664366",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
       REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
     
