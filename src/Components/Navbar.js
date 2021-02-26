@@ -12,8 +12,8 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-success mb-4">
         <div className="container">
           <Link className="navbar-brand bg-dark px-3 rounded-pill logo" to="/">
-            <strong>
-              Track<span className='text-danger'>Rush</span> <i className="fas fa-podcast"></i>
+            <strong className='rock'>
+              Track<span className='text-danger rock'>Rush</span> <i className="fas fa-podcast"></i>
             </strong>
           </Link>
           <button
