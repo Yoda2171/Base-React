@@ -111,3 +111,12 @@ body {
 .friendBar {
     font-size: 20px !important;
 }
+
+.logo {
+    border: 2px solid white !important;
+}
+
+.loginbox {
+    border: 3.5px solid #28a744 !important;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.27) !important; 
+}

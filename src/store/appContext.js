@@ -20,8 +20,6 @@ const injectContext = (PassedComponent) => {
       // funciones a ejecutar cuando carga la pagina
       state.actions.isAuthenticated();
       state.actions.getUserData();
-      state.actions.getUserdb();
-      
     }, []);
 
     return (
