@@ -130,3 +130,15 @@ body {
 .bg-dark {
     background-color: black !important;
 }
+
+.shadow {
+    box-shadow: 4px 7px 3px 0px rgba(0, 0, 0, 0.21) !important; 
+}
+
+.botonup {
+    margin-bottom: 60px !important; 
+}
+
+.profiledown {
+    margin-bottom: 45px !important;
+}

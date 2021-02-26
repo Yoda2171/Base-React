@@ -401,7 +401,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(store.following);
 
         store.following.forEach((v) => {
-          fetch(`http://localhost:5000/api/friends/${store.profile.id}`, {
+          fetch(`http://localhost:5000/api/friends/`, {
             headers: {
               "Content-Type": "application/json",
             },

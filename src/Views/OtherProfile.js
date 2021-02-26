@@ -27,7 +27,7 @@ function OtherProfile(props) {
             setBoton(
             <button
                 type="button"
-                className="btn btn-success btn-lg btn-block mt-5"
+                className="btn btn-success btn-lg btn-block mt-5 botonup"
                 onClick={() => actions.deleteFriend(slug)}
             >
                 Eliminar como amigo
@@ -38,7 +38,7 @@ function OtherProfile(props) {
             setBoton(
             <button
                 type="button"
-                className="btn btn-success btn-lg btn-block mt-5"
+                className="btn btn-success btn-lg btn-block mt-5 botonup"
                 onClick={() => actions.postFriends(store.otherProfile.name, store.otherProfile.photo, slug)}
             >
                 Agregar amigo
@@ -50,7 +50,7 @@ function OtherProfile(props) {
     return (
         <>
             <div
-                className="card border-success mb-3 m-auto"
+                className="card border-success mb-3 m-auto shadow"
                 style={{ "max-width": "38rem" }}>
                 <div className="card-header bg-success border-success py-3">
                     <img
@@ -61,7 +61,7 @@ function OtherProfile(props) {
                         {!!store.otherProfile && store.otherProfile.name}
                     </h1>
                 </div>
-                <div className="card-body list-group-flush">
+                <div className="card-body list-group-flush shadow">
                     <li className="list-group-item border-success ">
                         <i class="fas fa-users"></i>{" "}
                         {!!store.otherProfile && store.otherProfile.followers} Seguidores
@@ -75,7 +75,7 @@ function OtherProfile(props) {
                                         <span
                                             key={key}
                                             type="button"
-                                            class="btn btn-success mx-1 ml-2 mt-2 mb-2"
+                                            class="btn btn-success mx-1 ml-2 mt-2 mb-2 rounded-pill shadow"
                                         >
                                             {index.track.name} - {index.track.artists[0].name}
                                         </span>
