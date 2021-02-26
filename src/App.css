@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+
 * {
     font-family: "Nunito";
 }
@@ -119,4 +121,24 @@ body {
 .loginbox {
     border: 3.5px solid #28a744 !important;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.27) !important; 
+}
+
+.rock {
+    font-family: 'RocknRoll One', sans-serif !important;
+}
+
+.bg-dark {
+    background-color: black !important;
+}
+
+.shadow {
+    box-shadow: 4px 7px 3px 0px rgba(0, 0, 0, 0.21) !important; 
+}
+
+.botonup {
+    margin-bottom: 60px !important; 
+}
+
+.profiledown {
+    margin-bottom: 45px !important;
 }

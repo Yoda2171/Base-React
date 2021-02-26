@@ -41,7 +41,7 @@ function Feed() {
                 </div>
                 <div className="col-md col-sm mt-3">
                   <input
-                    className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill mt-5"
+                    className="text-white btn btn-rounded btn-lg btn-block bg-success rounded-pill mt-5 shadow"
                     type="button"
                     value="¿Que estas pensando?"
                     data-toggle="modal"
