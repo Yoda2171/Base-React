@@ -126,3 +126,7 @@ body {
 .rock {
     font-family: 'RocknRoll One', sans-serif !important;
 }
+
+.bg-dark {
+    background-color: black !important;
+}
