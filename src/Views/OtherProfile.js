@@ -36,7 +36,7 @@ function OtherProfile(props) {
             actions.postFriends(
               store.otherProfile.name,
               store.otherProfile.photo,
-              /* slug */
+              slug 
             )
           }
         >
