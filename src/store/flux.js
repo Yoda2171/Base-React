@@ -385,6 +385,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.error(error));
       },
+
       postFriends: (name, photo, personId) => {
         let store = getStore();
 
@@ -400,7 +401,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(store.following);
 
         store.following.forEach((v) => {
-          fetch(`http://localhost:5000/api/friends/`, {
+          fetch(`http://localhost:5000/api/friends/${store.profile.id}`, {
             headers: {
               "Content-Type": "application/json",
             },
