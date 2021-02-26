@@ -21,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
       REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
     
-      REACT_BACKEND_API: "http://192.168.0.26:5000/api/"
+      REACT_BACKEND_API: "http://localhost:5000/api/"
     },
     actions: {
       isAuthenticated: () => {
@@ -98,7 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getUserdb: () => {
-        fetch("http://192.168.0.26:5000/api/users/", {
+        fetch("http://localhost:5000/api/users/", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -117,7 +117,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getUserDataPost: () => {
         let store = getStore();
         
-        fetch("http://192.168.0.26:5000/api/users", {
+        fetch("http://localhost:5000/api/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -138,7 +138,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getUserDataPut: (id) => {
         let store = getStore();
-        fetch(`http://192.168.0.26:5000/api/user/${id}`, {
+        fetch(`http://localhost:5000/api/user/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -157,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getUserDataOther: (slug) => {
-        fetch(`http://192.168.0.26:5000/api/user/${slug}`, {
+        fetch(`http://localhost:5000/api/user/${slug}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -288,7 +288,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         let store = getStore();
         console.log("create post")
 
-        fetch("http://192.168.0.26:5000/api/posts", {
+        fetch("http://localhost:5000/api/posts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -308,7 +308,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getPosts: () => {
-        fetch("http://192.168.0.26:5000/api/posts", {
+        fetch("http://localhost:5000/api/posts", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -412,7 +412,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(store.following);
 
         store.following.forEach((v) => {
-          fetch(`http://192.168.0.26:5000/api/friends/`, {
+          fetch(`http://localhost:5000/api/friends/`, {
             headers: {
               "Content-Type": "application/json",
             },
@@ -432,7 +432,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getFriends: () => {
         let store = getStore();
-        fetch(`http://192.168.0.26:5000/api/friends/${store.profile.id}`, {
+        fetch(`http://localhost:5000/api/friends/${store.profile.id}`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -446,7 +446,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       deleteFriend: (id) => {
         let store = getStore();
-        fetch(`http://192.168.0.26:5000/api/friends/${store.profile.id}/${id}`, {
+        fetch(`http://localhost:5000/api/friends/${store.profile.id}/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

@@ -10,6 +10,7 @@ function Friends(props) {
 
   useEffect(() => {
     if (store.profile === null) history.push("/login");
+    actions.getUserdb()
   }, []);
 
   let urlID = `/profile/${store.postList.user_ids}`;
@@ -68,3 +69,4 @@ function Friends(props) {
 }
 
 export default Friends;
+

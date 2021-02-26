@@ -8,8 +8,7 @@ function CardFeed(props) {
 
   const { store, actions } = useContext(Context);
 
-  let profileID = `/profile/${props.id}`; //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
-  let ownID = `/profile/`;
+  let profileID = `/profile/${props.id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
 
   return (
     <>
@@ -20,28 +19,20 @@ function CardFeed(props) {
               <div className="row">
                 <div className="col-md ">
                   <div className="photoprofile col-md-6">
-                    {props.id === store.profile.id ? (
-                    <Link to={ownID}> <img className="text-white" id="feedAvatar" src={props.photo} /></Link>
-                    ) : (
                     <Link to={profileID}> <img className="text-white" id="feedAvatar" src={props.photo} /></Link>
-                    )
-                    }
                   </div>
                 </div>
                 <div className="col-md mt-4">
-                  {props.id === store.profile.id ? (
-                    <div><Link className="text-white" to={ownID}><h5>{props.name}</h5></Link></div>
-                  ) : (
-                    <div><Link className="text-white" to={profileID}><h5>{props.name}</h5></Link></div>
-                  )
-                  }
+                  <div><Link className="text-white" to={profileID}><h5>{props.name}</h5></Link></div>
                 </div>
               </div>
             </div>
             <div className="card-body">
               {props.commentary}
             </div>
-            <div className="card-footer bg-success">
+            <div className="card-footer">
+              <button className=" btn fa fa-heart" aria-hidden="true"></button>
+              
             </div>
           </div>
         </div>
