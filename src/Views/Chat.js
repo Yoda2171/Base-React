@@ -13,6 +13,7 @@ function Chat(props) {
 
   useEffect(() => {
     if (store.profile === null) history.push("/login");
+    
   }, []);
 
   return (

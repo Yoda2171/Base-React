@@ -3,14 +3,24 @@ import { io } from "socket.io-client";
 import socketIOClient from "socket.io-client";
 import { Context } from "../store/appContext";
 
+const socket = io("http://localhost:5000/");
+socket.on("connect", () => {
+    socket.emit("connected", "CONECTADO FRONT");
+});
+
 function RoomChat(props) {
     const { store, actions } = useContext(Context);
     const [arrayMsg, setArrayMsg] = useState([]);
 
-    const socket = io("http://192.168.0.26:5000/");
-    socket.on("connect", () => {
-        socket.emit("connected", "CONECTADO FRONT");
-    });
+
+    useEffect(() => {
+        
+        socket.on("response", (msg) => {
+            console.log(msg);
+            setArrayMsg(arrayMsg.concat(msg));
+        });
+
+    }, [arrayMsg])
 
     const handleMessage = (e) => {
         if (e.keyCode === 13) {
@@ -26,11 +36,8 @@ function RoomChat(props) {
         }
     };
 
-    socket.on("response", (msg) => {
-        console.log(msg);
-        setArrayMsg(arrayMsg.concat(msg));
-    });
-    
+   
+
     return (
         <>
             <div className="col-md-6">

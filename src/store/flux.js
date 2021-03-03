@@ -221,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            
             setStore({
               artista: data.artists.items[0],
             });
@@ -245,6 +245,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json())
           .then((data) => {
             const albums = data.items;
+            console.log("artista", albums)
 
             setStore({
               albums: albums,
@@ -267,8 +268,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         )
           .then((resp) => resp.json())
           .then((data) => {
+            console.log("tracks" , data.tracks.items)
             setStore({
-              albums: data.tracks.items,
+              tracks: data.tracks.items,
             });
           })
           .catch((error) => console.error(error));
