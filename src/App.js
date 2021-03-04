@@ -33,6 +33,7 @@ function App() {
             <Switch>
               <Route exact path="/tokenlogin2171" component={Token} />
               <Route exact path="/profile/:slug" component={OtherProfile} />
+              <Route exact path="/chats/:id" component={Chat} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/chats" component={Chat} />
               <Route exact path="/people" component={Friends} />
