@@ -39,7 +39,7 @@ function Chat(props) {
                         src={value.photo}
                         id="friendAvatar"
                         className="mr-4"
-                      />{" "}
+                      />
                       {value.friends}
                     </h4>
                   );

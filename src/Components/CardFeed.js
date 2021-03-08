@@ -14,7 +14,7 @@ function CardFeed(props) {
     <>
       <div className="row p-2">
         <div className="col-md d-flex justify-content-center">
-          <div className="card cardfeed">
+          <div className="card w-50">
             <div className="card-header bg-success">
               <div className="row">
                 <div className="col-md ">
@@ -27,12 +27,11 @@ function CardFeed(props) {
                 </div>
               </div>
             </div>
-            <div className="card-body">
-              {props.commentary}
+            <div className="card-body text-center">
+                  <img className="card-img-top" id="feedimage" src={props.image} alt="image"/>
             </div>
-            <div className="card-footer">
-              <button className=" btn fa fa-heart" aria-hidden="true"></button>
-              
+            <div className="card-footer mt-5">
+              {props.commentary}
             </div>
           </div>
         </div>

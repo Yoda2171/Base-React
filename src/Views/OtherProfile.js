@@ -107,12 +107,6 @@ function OtherProfile(props) {
                             })}
                     </li>
                     {boton}
-                        
-                        
-
-                   
-                    
-
                 </div>
             </div>
         </>

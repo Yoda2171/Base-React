@@ -7,23 +7,45 @@ import { useHistory } from "react-router-dom";
 
 function Feed() {
   const { store, actions } = useContext(Context);
-  
 
+  const [state, setState] = useState({
+    commentary: null,
+    image: null
+})
+  
   const history = useHistory();
 
-  
   useEffect(() => {
     if (store.token === null) history.push("/login");
     actions.getPosts()
   }, []);
 
-  const [inputPost, setPost] = useState(null);
+/*   const [inputPost, setPost] = useState(null); */
 
-  function captureText(e) {
-    setPost(e.target.value);
-  
+  const handleChange = e => {
+    let datos = state;
+    datos[e.target.name] = e.target.value
+    setState({ ...datos });
   }
 
+  const handleChangeFile = e => {
+    let datos = state;
+        datos[e.target.name] = e.target.files[0]
+        setState({ ...datos });
+    console.log("image")
+    console.log(state.image)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append('commentary', state.commentary);
+    formData.append('image', state.image);
+    formData.append('user_id', store.profile.id);
+    formData.append('path', "D:/Mary/curso-4Geeks/Proyectos/react/proyecto-final/Base-React/public/img/post");
+
+    actions.createPost(formData)
+}
 
   return (
     <>
@@ -56,8 +78,9 @@ function Feed() {
                   {
                     !!store.postList &&
                     store.postList.map((index, i) => {
+                      console.log("fuacafuaca",index.image)
                       return (
-                        <CardFeed key={i} id={index.user_id} photo={index.photo} name={index.name} commentary={index.commentary} />
+                        <CardFeed key={i} id={index.user_id} image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
                     }).reverse()
                   }
@@ -95,32 +118,38 @@ function Feed() {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">
-              <div className="row">
-                <div className="col-md-3 col-sm">
-                  <img
-                    src={!!store.profile && store.profile.images[0].url}
-                    id="modalAvatar"
-                    alt="fotito"
-                  />
+              <div className="modal-body">
+                <div className="row">
+                  <div className="col-md-3 col-sm">
+                    <img
+                      src={!!store.profile && store.profile.images[0].url}
+                      id="modalAvatar"
+                      alt="fotito"
+                      />
+                  </div>
+                  <div className="col-md-9 col-sm mt-2">
+                    <h5>{!!store.profile && store.profile.display_name}</h5>
+                  </div>
                 </div>
-                <div className="col-md-9 col-sm mt-2">
-                  <h5>{!!store.profile && store.profile.display_name}</h5>
                 </div>
-              </div>
-              <textarea
-                className="w-100 border-0 mt-4"
-                type="text"
-                placeholder="¿Que estas pensando?"
-                onChange={captureText}
-              ></textarea>
-            </div>
-            <div className="modal-footer">
-            
-              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => actions.createPost(inputPost)}>
-                Post
-              </button>
-            </div>
+              <form>
+                <div className="form-group p-3">
+                  <textarea
+                    className="w-100 border-0 mt-4 mt-5"
+                    id="commentary"
+                    name="commentary"
+                    type="text"
+                    placeholder="¿Que estas pensando?"
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
+                <div className="modal-footer form-group">
+                    <input type="file" className="form-control" id="image" name="image" onChange={handleChangeFile}/>
+                    <button type="submit" className="btn btn-success" data-dismiss="modal" onClick={handleSubmit}>
+                      Post
+                    </button>
+                </div>
+              </form>
           </div>
         </div>
       </div>

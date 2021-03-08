@@ -15,8 +15,8 @@
 }
 
 .cardfeed {
-    width: 30em;
-    height: 300px;
+    width: auto;
+    height: auto;
     margin: auto;
     border: 2px solid green !important;
 }
@@ -104,6 +104,10 @@ body {
 #containerNotFound {
     margin-bottom: 335px;
 }
+
+/* #feedimage {
+    width: 40%;
+} */
 
 #friendAvatar {
     border-radius: 50%;
