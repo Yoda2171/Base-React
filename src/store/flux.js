@@ -286,19 +286,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
         history.push("/login");
       },
-      createPost: (inputValue) => {
-        let store = getStore();
+
+      createPost: (form) => {
         console.log("create post")
 
         fetch("http://localhost:5000/api/posts", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            commentary: inputValue,
-            user_id: store.profile.id,
-          }),
+          body: form
         })
           .then((resp) => resp.json())
           .then((data) => {
@@ -428,7 +422,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
             .then((resp) => resp.json())
             .then(() => {
-              getActions().getFriends();
+              /* getActions().getFriends(); */
             });
         });
       },

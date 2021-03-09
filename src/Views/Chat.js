@@ -30,27 +30,22 @@ function Chat(props) {
                   let chatID = `/chats/${value.personId}`
 
                   return (
-                    <>
-                      
-                        <h4
-                          key={i}
-                          class="list-group-item list-group-item-action bg-light text-dark border-light"
-                          id="list-profile-list"
-                          data-toggle="list"
-                          href={href}
-                          role="tab"
-                          aria-controls="profile"
-                        >
-                          <img
-                            src={value.photo}
-                            id="friendAvatar"
-                            className="mr-4 "
-                          />
-                          {value.friends}
-                        </h4>
-                     
-                    </>
-
+                    <h4
+                      key={i}
+                      class="list-group-item list-group-item-action"
+                      id="list-profile-list"
+                      data-toggle="list"
+                      href={href}
+                      role="tab"
+                      aria-controls="profile"
+                    >
+                      <img
+                        src={value.photo}
+                        id="friendAvatar"
+                        className="mr-4"
+                      />
+                      {value.friends}
+                    </h4>
                   );
                 }) : (
                   <h1>No hay amigos aún...</h1>
