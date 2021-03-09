@@ -13,6 +13,7 @@ function Chat(props) {
 
   useEffect(() => {
     if (store.profile === null) history.push("/login");
+    actions.getFriends()
   }, []);
 
   return (
@@ -22,9 +23,12 @@ function Chat(props) {
           <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
               {!!store.followingDB &&
-                store.followingDB.length > 0 ? 
+                store.followingDB.length > 0 ?
                 store.followingDB.map((value, i) => {
+
                   let href = `#${value.personId}`;
+                  let chatID = `/chats/${value.personId}`
+
                   return (
                     <h4
                       key={i}
@@ -45,7 +49,7 @@ function Chat(props) {
                   );
                 }) : (
                   <h1>No hay amigos aún...</h1>
-                  )
+                )
               }
             </div>
           </div>
@@ -53,8 +57,12 @@ function Chat(props) {
             <div class="tab-content" id="nav-tabContent">
               {!!store.followingDB &&
                 store.followingDB.map((value, i) => {
+
+                  let chatID = `/chats/${value.personId}`
+
                   return (
                     <>
+
                       <div
                         key={i}
                         class="tab-pane fade"
@@ -62,8 +70,11 @@ function Chat(props) {
                         role="tabpanel"
                         aria-labelledby="list-profile-list"
                       >
-                        <RoomChat username={value.friends} />
+                        <Link to={chatID} style={{ textDecoration: 'none' }}>
+                          <RoomChat username={value.friends} />
+                        </Link>
                       </div>
+
                     </>
                   );
                 })}

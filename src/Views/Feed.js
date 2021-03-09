@@ -32,13 +32,11 @@ function Feed() {
     let datos = state;
         datos[e.target.name] = e.target.files[0]
         setState({ ...datos });
-    console.log("image")
-    console.log(state.image)
   }
 
   const handleSubmit = e => {
     e.preventDefault();
-    let formData = new FormData();
+     let formData = new FormData();
     formData.append('commentary', state.commentary);
     formData.append('image', state.image);
     formData.append('user_id', store.profile.id);
@@ -84,7 +82,6 @@ function Feed() {
                       );
                     }).reverse()
                   }
-
                 </ul>
               </div>
             </div>
@@ -132,24 +129,24 @@ function Feed() {
                   </div>
                 </div>
                 </div>
-              <form>
-                <div className="form-group p-3">
-                  <textarea
-                    className="w-100 border-0 mt-4 mt-5"
-                    id="commentary"
-                    name="commentary"
-                    type="text"
-                    placeholder="¿Que estas pensando?"
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-                <div className="modal-footer form-group">
-                    <input type="file" className="form-control" id="image" name="image" onChange={handleChangeFile}/>
-                    <button type="submit" className="btn btn-success" data-dismiss="modal" onClick={handleSubmit}>
-                      Post
-                    </button>
-                </div>
-              </form>
+              <div>
+                  <div className="form-group p-3">
+                    <textarea
+                      className="w-100 border-0 mt-4 mt-5"
+                      id="commentary"
+                      name="commentary"
+                      type="text"
+                      placeholder="¿Que estas pensando?"
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+                  <div className="modal-footer form-group">
+                      <input type="file" className="form-control" id="image" name="image" onChange={handleChangeFile}/>
+                      <button type="button" className="btn btn-success" data-dismiss="modal" onClick={handleSubmit}>
+                        Post
+                      </button>
+                  </div>
+              </div>
           </div>
         </div>
       </div>

@@ -3,14 +3,26 @@ import { io } from "socket.io-client";
 import socketIOClient from "socket.io-client";
 import { Context } from "../store/appContext";
 
+
+const socket = io("http://localhost:5000/");
+socket.on("connect", () => {
+    socket.emit("connected", "CONECTADO FRONT");
+});
+
+
 function RoomChat(props) {
     const { store, actions } = useContext(Context);
     const [arrayMsg, setArrayMsg] = useState([]);
 
-    const socket = io("http://192.168.0.26:5000/");
-    socket.on("connect", () => {
-        socket.emit("connected", "CONECTADO FRONT");
-    });
+
+    useEffect(() => {
+
+        socket.on("response", (msg) => {
+            console.log(msg);
+            setArrayMsg(arrayMsg.concat(msg));
+        });
+
+    }, [arrayMsg])
 
     const handleMessage = (e) => {
         if (e.keyCode === 13) {
@@ -26,17 +38,14 @@ function RoomChat(props) {
         }
     };
 
-    socket.on("response", (msg) => {
-        console.log(msg);
-        setArrayMsg(arrayMsg.concat(msg));
-    });
-    
+
+
     return (
         <>
             <div className="col-md-6">
                 <div className="card w-100 h-75 ">
                     <div className="card-body bg-success">
-                        <h5 className="card-title text-white">
+                        <h5 className="card-title text-white ">
                             <i className="fas fa-camera"></i> {props.username}
                         </h5>
 
@@ -46,7 +55,7 @@ function RoomChat(props) {
                                 return (
                                     <>
                                         <p key={i} className="card-text text-white bubble">
-                                            <strong>{valor.username} :</strong> {valor.message}
+                                            <strong className="">{valor.username} :</strong> {valor.message}
                                         </p>
                                     </>
                                 );
@@ -55,10 +64,10 @@ function RoomChat(props) {
 
                     </div>
                     <div className="card-footer bg-dark">
-                        <div className="input-group ">
+                        <div className="input-group">
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control "
                                 placeholder="Envia un mensaje"
                                 onKeyUp={handleMessage}
                             />
