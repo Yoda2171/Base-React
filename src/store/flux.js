@@ -309,12 +309,38 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json",
           },
         })
+        .then((resp) => resp.json())
+        .then((data) => {
+          setStore({
+            postList: data,
+          });
+        })
+        .catch((error) => console.error(error));
+      },
+      
+      yo: () => {
+        console.log("id")
+      },
+
+      likesPost: (id) => {
+        let store = getStore();
+        fetch("http://localhost:5000/api/likespost/", {
+          headers: {
+            "Content-Type": "application/json",
+          },  
+          method: "POST",
+          body: JSON.stringify({
+                likes: 1,
+                active: true,
+                post_id: id,
+                user_id: store.profile.id
+          }),
+        })
           .then((resp) => resp.json())
           .then((data) => {
-            setStore({
-              postList: data,
-            });
+            /* getActions().getLikesPosts(); */
           })
+
           .catch((error) => console.error(error));
       },
 
@@ -422,7 +448,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
             .then((resp) => resp.json())
             .then(() => {
-              getActions().getFriends();
+               getActions().getFriends();
             });
         });
       },

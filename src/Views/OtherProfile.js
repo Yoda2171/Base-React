@@ -12,6 +12,8 @@ function OtherProfile(props) {
 
     const [boton, setBoton] = useState()
 
+    console.log(store.otherProfile)
+
     useEffect(() => {
         if (store.profile === null) history.push("/login");
         actions.getUserDataOther(slug)
