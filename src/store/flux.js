@@ -17,6 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       followingDB: [],
       following: [],
       userdb: [],
+      likesPost: null,
       REACT_APP_CLIENT_ID: "e6dd68b952104e71a1d03485ee664366",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
       REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
@@ -317,18 +318,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
         .catch((error) => console.error(error));
       },
-      
-      yo: () => {
-        console.log("id")
-      },
 
       likesPost: (id) => {
         let store = getStore();
         fetch("http://localhost:5000/api/likespost/", {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },  
-          method: "POST",
           body: JSON.stringify({
                 likes: 1,
                 active: true,
@@ -342,6 +339,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
 
           .catch((error) => console.error(error));
+      },
+
+      getLikesPost: () => {
+        fetch("http://localhost:5000/api/likespost/",{
+          method: "GET",
+          headers: { "Content-Type": "application/json"}
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data)
+              setStore({
+                likesPost: data
+              })
+          })
       },
 
       getFollowId: (id) => {

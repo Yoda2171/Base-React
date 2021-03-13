@@ -10,6 +10,7 @@ function CardFeed(props) {
 
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
+  
 
   return (
     <>
@@ -33,7 +34,7 @@ function CardFeed(props) {
         <div className="card-footer">
           <div className="row">
             <button className="far fa-heart btn" type="button" onClick={() => actions.likesPost(id)}></button>
-            <span className="mt-2 ml-2">{props.likes}</span>
+            <span className="mt-1">{props.likes}</span>
           </div>
 
 

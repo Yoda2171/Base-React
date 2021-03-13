@@ -17,7 +17,8 @@ function Feed() {
 
   useEffect(() => {
     if (store.token === null) history.push("/login");
-    actions.getPosts()
+    actions.getPosts();
+    actions.getLikesPost();
   }, []);
 
   const [inputPost, setPost] = useState(null);
@@ -44,7 +45,18 @@ function Feed() {
 
 
     actions.createPost(formData)
+  }
 
+  
+  const likes = (id) => {
+      let aux = 0;
+      !!store.likesPost && 
+      store.likesPost.map((valor) => {
+        if (valor.post_id == id){
+           aux = aux + 1;
+          }
+        })
+    return aux;
   }
 
  
@@ -78,11 +90,12 @@ function Feed() {
               <div className="col-md col-sm">
                 <ul>
                   {
+                    
                     !!store.postList &&
                     store.postList.map((index, i) => {
-                      console.log("fuacafuaca", index.image)
+
                       return (
-                        <CardFeed key={i} id={index.id} user_id={index.user_id} likes="Likes" image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
+                        <CardFeed key={i} id={index.id} user_id={index.user_id} likes={likes(index.id) + " " + "Likes"} image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
                     }).reverse()
                   }
