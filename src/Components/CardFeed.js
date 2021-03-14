@@ -42,10 +42,10 @@ function CardFeed(props) {
               <img className="input-group rounded-pill img-fluid" src={!!store.profile && store.profile.images[0].url} id="basic-addon1"></img>
             </div>
 
-            <div class="input-group mb-1" style={{"width":"335px"}}>
-              <input type="text" className="form-control m-auto" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={props.onChange}/>
-              <div className="input-group-append">
-                <button className= "btn fa fa-comment btn-outline-dark" id="button-addon2" type="button" aria-hidden="true" onClick={props.onClick}></button>
+            <div class="input-group mb-3" style={{"width":"25em"}}>
+              <input type="text" class="form-control" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+              <div class="input-group-append">
+                <button class="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClick}></button>
               </div>
             </div>
           </div>
