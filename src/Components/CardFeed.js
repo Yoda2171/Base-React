@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../App.css";
 import { Context } from "../store/appContext";
+import Comments from "./Comments";
 
 function CardFeed(props) {
 
@@ -42,11 +43,28 @@ function CardFeed(props) {
               <img className="input-group rounded-pill img-fluid" src={!!store.profile && store.profile.images[0].url} id="basic-addon1"></img>
             </div>
 
-            <div class="input-group mb-3" style={{"width":"25em"}}>
-              <input type="text" class="form-control" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-              <div class="input-group-append">
-                <button class="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClick}></button>
+            <div className="input-group mb-3" style={{"width":"25em"}}>
+              <input type="text" className="form-control" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={props.onChange}/>
+              <div className="input-group-append">
+                <button className="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClick}></button>
               </div>
+            </div>
+          </div>
+          <div className="row mb-2 mt-2">
+            <div className="col-md col-sm">
+              <ul>
+                {
+                  !!store.commentsPost &&
+                  store.commentsPost.map((value, i) => {
+                    if (value.post_id == id) {
+                      return(
+                        <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
+                      )
+                    }
+                    
+                  })
+                }
+              </ul>
             </div>
           </div>
         </div>

@@ -14,43 +14,44 @@ function Feed() {
   })
 
   const history = useHistory();
-
-  useEffect(() => {
-    if (store.token === null) history.push("/login");
-    actions.getPosts();
-    actions.getLikesPost();
-  }, []);
-
-  const [inputPost, setInputPost] = useState(null);
-
+  
+  const [inputPost, setInputPost] = useState("");
+  
   const handleChangeCommentary = e => {
-    setInputPost(e.target.value);
+    let valor = e.target.value;
+    setInputPost(valor);
   }
-
+  
   const handleChange = e => {
     let datos = state;
     datos[e.target.name] = e.target.value
     setState({ ...datos });
   }
-
+  
   const handleChangeFile = e => {
     let datos = state;
-        datos[e.target.name] = e.target.files[0]
-        setState({ ...datos });
+    datos[e.target.name] = e.target.files[0]
+    setState({ ...datos });
   }
-
+  
   const handleSubmit = e => {
     e.preventDefault();
-     let formData = new FormData();
+    let formData = new FormData();
     formData.append('commentary', state.commentary);
     formData.append('image', state.image);
     formData.append('user_id', store.profile.id);
     formData.append('path', "D:/Mary/curso-4Geeks/Proyectos/react/proyecto-final/Base-React/public/img/post");
-
-
+    
+    
     actions.createPost(formData)
   }
   
+  useEffect(() => {
+    if (store.token === null) history.push("/login");
+    actions.getPosts();
+    actions.getLikesPost();
+    actions.getCommentaryPost();
+  }, []);
 
  
 
@@ -96,7 +97,7 @@ function Feed() {
                         name={index.name} 
                         commentary={index.commentary} 
                         onChange={handleChangeCommentary}
-                        onClick={() => actions.commentaryPost(index.id, inputPost)}
+                        onClick={ () => actions.commentaryPost(index.id, inputPost)}
                         />
                       );
                     }).reverse()

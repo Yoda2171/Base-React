@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       following: [],
       userdb: [],
       likesPost: null,
+      commentsPost: null,
       REACT_APP_CLIENT_ID: "e6dd68b952104e71a1d03485ee664366",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
       REACT_APP_REDIRECT_URL: "http://localhost:3000/tokenlogin2171",
@@ -371,9 +372,24 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then(() => {
+            getActions().getCommentaryPost();
           })
 
           .catch((error) => console.error(error));
+      },
+
+      getCommentaryPost: () => {
+        fetch("http://localhost:5000/api/commentspost/",{
+          method: "GET",
+          headers: { "Content-Type": "application/json"}
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log("dataaaaaaaaaaa", data)
+              setStore({
+                commentsPost: data
+              })
+          })
       },
 
       getFollowId: (id) => {
