@@ -21,7 +21,11 @@ function Feed() {
     actions.getLikesPost();
   }, []);
 
-  const [inputPost, setPost] = useState(null);
+  const [inputPost, setInputPost] = useState(null);
+
+  const handleChangeCommentary = e => {
+    setInputPost(e.target.value);
+  }
 
   const handleChange = e => {
     let datos = state;
@@ -83,7 +87,17 @@ function Feed() {
                     !!store.postList &&
                     store.postList.map((index, i) => {
                       return (
-                        <CardFeed key={i} id={index.id} user_id={index.user_id} likes={actions.likes(index.id) + " " + "Likes"} image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
+                        <CardFeed 
+                        key={i} id={index.id} 
+                        user_id={index.user_id} 
+                        likes={actions.likes(index.id) + " " + "Likes"} 
+                        image={"./img/post/" + index.image} 
+                        photo={index.photo} 
+                        name={index.name} 
+                        commentary={index.commentary} 
+                        onChange={handleChangeCommentary}
+                        onClick={() => actions.commentaryPost(index.id, inputPost)}
+                        />
                       );
                     }).reverse()
                   }

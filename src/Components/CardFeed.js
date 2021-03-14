@@ -11,17 +11,6 @@ function CardFeed(props) {
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
 
-  /* const likes = (id) => {
-    let aux;
-    aux = 0;
-      !!store.likesPost &&
-      store.likesPost.map((valor) => {
-        if (valor.post_id == id){
-          aux = aux + 1;
-        }
-      })
-  } */
-
   return (
     <>
       <div className="card w-50 ml-auto mr-auto mb-4 mt-4">
@@ -52,7 +41,13 @@ function CardFeed(props) {
             <div className="input-group-prepend col-2">
               <img className="input-group rounded-pill img-fluid" src={!!store.profile && store.profile.images[0].url} id="basic-addon1"></img>
             </div>
-            <input type="text" className="form-control m-auto" placeholder="Escribe un comentario" aria-label="Username" aria-describedby="basic-addon1" />
+
+            <div class="input-group mb-1" style={{"width":"335px"}}>
+              <input type="text" className="form-control m-auto" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={props.onChange}/>
+              <div className="input-group-append">
+                <button className= "btn fa fa-comment btn-outline-dark" id="button-addon2" type="button" aria-hidden="true" onClick={props.onClick}></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

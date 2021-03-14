@@ -356,6 +356,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         return store.likesPost?  store.likesPost.filter(valor => valor.post_id == id).length:0
       },
 
+      commentaryPost: (id, commentary) => {
+        let store = getStore();
+        fetch("http://localhost:5000/api/commentspost", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },  
+          body: JSON.stringify({
+                commentary: commentary,
+                post_id: id,
+                user_id: store.profile.id
+          }),
+        })
+          .then((resp) => resp.json())
+          .then(() => {
+          })
+
+          .catch((error) => console.error(error));
+      },
+
       getFollowId: (id) => {
         let store = getStore();
         fetch(
