@@ -57,8 +57,8 @@ function Feed() {
 
   return (
     <>
-      <div className="container">
-        <div className="row mt-5">
+      <div className="container mt-5">
+        <div className="row">
           <div className="col-md">
             <div className="card-header rounded-pill ">
               <div className="row">
