@@ -12,8 +12,6 @@ function OtherProfile(props) {
 
     const [boton, setBoton] = useState()
 
-    console.log(store.otherProfile)
-
     useEffect(() => {
         if (store.profile === null) history.push("/login");
         actions.getUserDataOther(slug)
@@ -41,7 +39,7 @@ function OtherProfile(props) {
             <button
                 type="button"
                 className="btn btn-success btn-lg btn-block mt-5 botonup"
-                onClick={() => actions.postFriends(store.otherProfile.name, store.otherProfile.photo, slug)}
+                onClick={() => actions.postFriends(store.otherProfile.name, store.otherProfile.photo, store.otherProfile.user_id)}
             >
                 Agregar amigo
             </button>)

@@ -33,7 +33,7 @@ function CardFeed(props) {
           className="card-img-top" alt="..." />
         <div className="card-footer">
           <div className="row">
-            <button className="far fa-heart btn" type="button" onClick={() => {actions.likesPost(id)}}></button>
+            <i className="far fa-heart btn btn-check" type="button" id="like" onClick={() => {actions.likesPost(id);}}></i>
                 <span className="mt-1">{props.likes}</span>
           </div>
 

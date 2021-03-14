@@ -467,37 +467,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       postFriends: (name, photo, personId) => {
         let store = getStore();
-
-        setStore({
-          following: store.following.concat({
-            name: name,
-            photo: photo,
-            personId: personId,
-            idPropia: store.profile.id,
-          }),
-        });
-
-        console.log(store.following);
-
-        store.following.forEach((v) => {
           fetch(`http://localhost:5000/api/friends/`, {
             headers: {
               "Content-Type": "application/json",
             },
             method: "POST",
             body: JSON.stringify({
-              friends: v.name,
-              user_id: v.idPropia,
-              personId: v.personId,
-              photo: v.photo,
+                  friends: name,
+                  user_id: store.profile.id,
+                  personId: personId,
+                  photo: photo,
             }),
           })
             .then((resp) => resp.json())
             .then(() => {
                getActions().getFriends();
             });
-        });
+        /* }); */
       },
+
       getFriends: () => {
         let store = getStore();
         fetch(`http://localhost:5000/api/friends/${store.profile.id}`, {

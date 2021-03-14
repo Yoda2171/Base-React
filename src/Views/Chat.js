@@ -19,9 +19,9 @@ function Chat(props) {
   return (
     <>
       <>
-        <div class="row">
-          <div class="col-4">
-            <div class="list-group" id="list-tab" role="tablist">
+        <div className="row">
+          <div className="col-4">
+            <div className="list-group" id="list-tab" role="tablist">
               {!!store.followingDB &&
                 store.followingDB.length > 0 ?
                 store.followingDB.map((value, i) => {
@@ -32,7 +32,7 @@ function Chat(props) {
                   return (
                     <h4
                       key={i}
-                      class="list-group-item list-group-item-action"
+                      className="list-group-item list-group-item-action"
                       id="list-profile-list"
                       data-toggle="list"
                       href={href}
@@ -53,8 +53,8 @@ function Chat(props) {
               }
             </div>
           </div>
-          <div class="col-8">
-            <div class="tab-content" id="nav-tabContent">
+          <div className="col-8">
+            <div className="tab-content" id="nav-tabContent">
               {!!store.followingDB &&
                 store.followingDB.map((value, i) => {
 
@@ -65,7 +65,7 @@ function Chat(props) {
 
                       <div
                         key={i}
-                        class="tab-pane fade"
+                        className="tab-pane fade"
                         id={value.personId}
                         role="tabpanel"
                         aria-labelledby="list-profile-list"
