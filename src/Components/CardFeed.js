@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../App.css";
 import { Context } from "../store/appContext";
@@ -10,7 +10,17 @@ function CardFeed(props) {
 
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
-  
+
+  /* const likes = (id) => {
+    let aux;
+    aux = 0;
+      !!store.likesPost &&
+      store.likesPost.map((valor) => {
+        if (valor.post_id == id){
+          aux = aux + 1;
+        }
+      })
+  } */
 
   return (
     <>
@@ -33,8 +43,8 @@ function CardFeed(props) {
           className="card-img-top" alt="..." />
         <div className="card-footer">
           <div className="row">
-            <button className="far fa-heart btn" type="button" onClick={() => actions.likesPost(id)}></button>
-            <span className="mt-1">{props.likes}</span>
+            <button className="far fa-heart btn" type="button" onClick={() => {actions.likesPost(id)}}></button>
+                <span className="mt-1">{props.likes}</span>
           </div>
 
 

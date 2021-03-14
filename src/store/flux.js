@@ -82,17 +82,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       checkUser: () => {
-        console.log("checkUser")
         const { profile, userdb } = getStore();
         console.log( profile );
         console.log( userdb );
         if (profile !== null && userdb !== null) {
           const user = userdb.find((user) => profile.id === user.user_id);
           if (user) {
-            console.log("getUserDataPut")
             getActions().getUserDataPut(profile.id);
           } else {
-            console.log("getUserDataPost")
             getActions().getUserDataPost();
           }
         }
@@ -296,8 +293,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: (form)
         })
           .then((resp) => resp.json())
-          .then((data) => {
-            console.log(data);
+          .then(() => {
             getActions().getPosts();
           })
 
@@ -334,8 +330,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         })
           .then((resp) => resp.json())
-          .then((data) => {
-            /* getActions().getLikesPosts(); */
+          .then(() => {
+            getActions().getLikesPost()
           })
 
           .catch((error) => console.error(error));
@@ -348,11 +344,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data)
+            console.log("dataaaaaaaaaaa", data)
               setStore({
                 likesPost: data
               })
           })
+      },
+
+      likes: (id) => {
+        let store = getStore();
+        return store.likesPost?  store.likesPost.filter(valor => valor.post_id == id).length:0
       },
 
       getFollowId: (id) => {
@@ -387,7 +388,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
             getActions().getOtherFollowers(id);
           })
           .catch((error) => console.error(error));
@@ -405,7 +405,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
             getActions().getOtherFollowers(id);
           })
           .catch((error) => console.error(error));

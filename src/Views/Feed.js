@@ -46,18 +46,7 @@ function Feed() {
 
     actions.createPost(formData)
   }
-
   
-  const likes = (id) => {
-      let aux = 0;
-      !!store.likesPost && 
-      store.likesPost.map((valor) => {
-        if (valor.post_id == id){
-           aux = aux + 1;
-          }
-        })
-    return aux;
-  }
 
  
 
@@ -93,9 +82,8 @@ function Feed() {
                     
                     !!store.postList &&
                     store.postList.map((index, i) => {
-
                       return (
-                        <CardFeed key={i} id={index.id} user_id={index.user_id} likes={likes(index.id) + " " + "Likes"} image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
+                        <CardFeed key={i} id={index.id} user_id={index.user_id} likes={actions.likes(index.id) + " " + "Likes"} image={"./img/post/" + index.image} photo={index.photo} name={index.name} commentary={index.commentary} />
                       );
                     }).reverse()
                   }
