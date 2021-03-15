@@ -33,7 +33,7 @@ function CardFeed(props) {
           className="card-img-top" alt="..." />
         <div className="card-footer">
           <div className="row">
-            <i className="far fa-heart btn btn-check" type="button" id="like" onClick={() => {actions.likesPost(id);}}></i>
+            <i className="far fa-heart btn btn-check" type="button" id="like" onClick={() => {actions.likesPost(id)}}></i>
                 <span className="mt-1">{props.likes}</span>
           </div>
 
@@ -52,19 +52,27 @@ function CardFeed(props) {
           </div>
           <div className="row mb-2 mt-2">
             <div className="col-md col-sm">
-              <ul>
-                {
-                  !!store.commentsPost &&
-                  store.commentsPost.map((value, i) => {
-                    if (value.post_id == id) {
-                      return(
-                        <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
-                      )
-                    }
-                    
-                  })
-                }
-              </ul>
+            <p>
+              <a className="btn float-right mb-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Comentarios...
+              </a>
+            </p>
+            <div className="collapse" id="collapseExample">
+              <div >
+                <ul>
+                  {
+                    !!store.commentsPost &&
+                    store.commentsPost.map((value, i) => {
+                      if (value.post_id == id) {
+                        return(
+                          <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
+                        )
+                      }
+                    })
+                  }
+                </ul>
+              </div>
+            </div>
             </div>
           </div>
         </div>
