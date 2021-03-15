@@ -18,7 +18,6 @@ function Chat(props) {
 
   return (
     <>
-      <>
         <div className="row">
           <div className="col-4">
             <div className="list-group" id="list-tab" role="tablist">
@@ -27,7 +26,7 @@ function Chat(props) {
                 store.followingDB.map((value, i) => {
 
                   let href = `#${value.personId}`;
-                  let chatID = `/chats/${value.personId}`
+                  //let chatID = `/chats/${value.personId}`
 
                   return (
                     <h4
@@ -62,7 +61,6 @@ function Chat(props) {
 
                   return (
                     <>
-
                       <div
                         key={i}
                         className="tab-pane fade"
@@ -74,14 +72,12 @@ function Chat(props) {
                           <RoomChat username={value.friends} />
                         </Link>
                       </div>
-
                     </>
                   );
                 })}
             </div>
           </div>
         </div>
-      </>
     </>
   );
 }
