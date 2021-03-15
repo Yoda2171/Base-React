@@ -354,7 +354,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       likes: (id) => {
         let store = getStore();
-        return store.likesPost?  store.likesPost.filter(valor => valor.post_id == id).length:0
+        return store.likesPost ? store.likesPost.filter(valor => valor.post_id == id).length:0
       },
 
       commentaryPost: (id, commentary) => {

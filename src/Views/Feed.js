@@ -97,7 +97,7 @@ function Feed() {
                         name={index.name} 
                         commentary={index.commentary} 
                         onChange={handleChangeCommentary}
-                        onClick={ () => actions.commentaryPost(index.id, inputPost)}
+                        onClickCommentary={ () => actions.commentaryPost(index.id, inputPost)}
                         />
                       );
                     }).reverse()

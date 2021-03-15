@@ -46,7 +46,7 @@ function CardFeed(props) {
             <div className="input-group mb-3" style={{"width":"25em"}}>
               <input type="text" className="form-control" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={props.onChange}/>
               <div className="input-group-append">
-                <button className="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClick}></button>
+                <button className="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClickCommentary}></button>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ function CardFeed(props) {
                           <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
                         )
                       }
-                    })
+                    }).reverse()
                   }
                 </ul>
               </div>
