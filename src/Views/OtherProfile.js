@@ -23,12 +23,12 @@ function OtherProfile(props) {
     function checkfriends() {
         let boton = store.followingDB.find((valor) =>  slug == valor.personId)
 
-        if (boton) {
+        if (boton && store.otherProfile.user_id) {
             setBoton(
             <button
                 type="button"
                 className="btn btn-success btn-lg btn-block mt-5 botonup"
-                onClick={() => actions.deleteFriend(slug)}
+                onClick={() => actions.deleteFriend(store.otherProfile.user_id)}
             >
                 Eliminar como amigo
             </button>)

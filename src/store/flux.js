@@ -502,7 +502,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       deleteFriend: (id) => {
         let store = getStore();
-        fetch(`http://localhost:5000/api/friends/${store.profile.id}/${id}`, {
+        fetch(`http://localhost:5000/api/friends/${store.profile.id}/${id}/`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
