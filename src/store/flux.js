@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       following: [],
       userdb: [],
       likesPost: null,
+      active: false,
       commentsPost: null,
       REACT_APP_CLIENT_ID: "e6dd68b952104e71a1d03485ee664366",
       REACT_APP_AUTHORIZE_URL: "https://accounts.spotify.com/authorize",
@@ -333,6 +334,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((resp) => resp.json())
           .then(() => {
             getActions().getLikesPost()
+            getActions().activeLike(id)
           })
 
           .catch((error) => console.error(error));
@@ -355,6 +357,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       likes: (id) => {
         let store = getStore();
         return store.likesPost ? store.likesPost.filter(valor => valor.post_id == id).length:0
+      },
+
+      activeLike: (id) => {
+        let store = getStore();
+        store.likesPost.filter(valor => valor.post_id == id & store.likesPost.active == true)
+           return setStore({
+                  active: true
+            })
       },
 
       commentaryPost: (id, commentary) => {

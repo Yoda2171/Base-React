@@ -89,7 +89,8 @@ function Feed() {
                     store.postList.map((index, i) => {
                       return (
                         <CardFeed 
-                        key={i} id={index.id} 
+                        key={i} 
+                        id={index.id} 
                         user_id={index.user_id} 
                         likes={actions.likes(index.id) + " " + "Likes"} 
                         image={"./img/post/" + index.image} 

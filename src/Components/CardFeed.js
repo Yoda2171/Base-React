@@ -1,3 +1,4 @@
+import { getByDisplayValue } from "@testing-library/react";
 import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../App.css";
@@ -8,6 +9,7 @@ function CardFeed(props) {
 
 
   const { store, actions } = useContext(Context);
+  console.log("active", store.active)
 
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
@@ -33,7 +35,7 @@ function CardFeed(props) {
           className="card-img-top" alt="..." />
         <div className="card-footer">
           <div className="row">
-            <i className="far fa-heart btn btn-check" type="button" id="like" onClick={() => {actions.likesPost(id)}}></i>
+            <button className="far fa-heart btn btn-check" disabled={store.active} type="button" id="like" onClick={() => {actions.likesPost(id)}}></button>
                 <span className="mt-1">{props.likes}</span>
           </div>
 
