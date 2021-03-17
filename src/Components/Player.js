@@ -15,9 +15,6 @@ function Player() {
 
   return (
     <>
-      <Fragment>
-
-
         <li className="nav-item ">
           <div className="input-group">
             <div className="input-group-prepend">
@@ -107,9 +104,6 @@ function Player() {
             </div>
           </div>
         </div>
-
-
-      </Fragment>
     </>
   );
 }

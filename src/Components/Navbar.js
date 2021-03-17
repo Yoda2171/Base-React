@@ -9,7 +9,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-success mb-5 sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-success mb-5">
         <div className="container">
           <Link className="navbar-brand bg-dark px-3 rounded-pill logo" to="/">
             <strong className='rock'>

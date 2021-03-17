@@ -6,13 +6,22 @@ import { Context } from "../store/appContext";
 import Comments from "./Comments";
 
 function CardFeed(props) {
-
-
+  
+  
   const { store, actions } = useContext(Context);
   console.log("active", store.active)
-
+  
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
+  let postid = `#${id}`;
+
+  const coment = (id) =>{
+    return(
+      <div>
+        Arniel es loca
+      </div>
+    )
+  }
 
   return (
     <>
@@ -35,7 +44,7 @@ function CardFeed(props) {
           className="card-img-top" alt="..." />
         <div className="card-footer">
           <div className="row">
-            <button className="far fa-heart btn btn-check text-danger" type="button" id="like" onClick={() => {actions.likesPost(id)}}></button>
+            <button className="far fa-heart btn btn-check text-danger" disabled={props.active} type="button" id="like" onClick={() => {actions.likesPost(id)}}></button>
                 <span className="mt-1">{props.likes}</span>
           </div>
 
@@ -54,27 +63,25 @@ function CardFeed(props) {
           </div>
           <div className="row mb-2 mt-2">
             <div className="col-md col-sm">
-            <p>
-              <a className="btn float-right mb-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Comentarios...
-              </a>
-            </p>
-            <div className="collapse" id="collapseExample">
-              <div >
+              <p>
+                <a className="btn float-right mb-2" data-toggle="collapse" href={"#id"+id.toString()} role="button" aria-expanded="false">
+                  comentarios...
+                </a>
+              </p>
+              <div className="collapse" id={"id"+id.toString()}>
                 <ul>
-                  {
-                    !!store.commentsPost &&
-                    store.commentsPost.map((value, i) => {
-                      if (value.post_id == id) {
-                        return(
-                          <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
-                        )
-                      }
-                    }).reverse()
-                  }
-                </ul>
+                    {
+                      !!store.commentsPost &&
+                      store.commentsPost.map((value, i) => {
+                        if (value.post_id === id) {
+                          return(
+                            <Comments imgComments={value.photo} nameComments={value.name} comments={value.commentary}/>
+                          )
+                        }
+                      }).reverse()
+                    }
+                  </ul>
               </div>
-            </div>
             </div>
           </div>
         </div>

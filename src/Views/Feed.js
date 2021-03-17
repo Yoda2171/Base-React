@@ -91,6 +91,7 @@ function Feed() {
                         <CardFeed 
                         key={i} 
                         id={index.id} 
+                        active={false}
                         user_id={index.user_id} 
                         likes={actions.likes(index.id) + " " + "Likes"} 
                         image={"./img/post/" + index.image} 
