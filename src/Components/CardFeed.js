@@ -1,5 +1,5 @@
 import { getByDisplayValue } from "@testing-library/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../App.css";
 import { Context } from "../store/appContext";
@@ -13,14 +13,14 @@ function CardFeed(props) {
   
   let profileID = `/profile/${props.user_id}` //COLOCAR EL ID DE LA BASE DE DATOS DE NOSOTROS 
   let id = props.id;
-  let postid = `#${id}`;
 
-  const coment = (id) =>{
-    return(
-      <div>
-        Arniel es loca
-      </div>
-    )
+  let comentRef = useRef(null)
+
+  const [inputPost, setInputPost] = useState("");
+  
+  const handleChangeCommentary = e => {
+    let valor = e.target.value;
+     setInputPost(valor);
   }
 
   return (
@@ -55,9 +55,12 @@ function CardFeed(props) {
             </div>
 
             <div className="input-group mb-3" style={{"width":"25em"}}>
-              <input type="text" className="form-control" placeholder="Escribe un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={props.onChange}/>
+              <input type="text" className="form-control" placeholder="Escribe un comentario" id="comment" aria-label="Recipient's username" aria-describedby="button-addon2" ref={(r)=> (comentRef=r)} onChange={handleChangeCommentary}/>
               <div className="input-group-append">
-                <button className="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={props.onClickCommentary}></button>
+                <button className="btn btn-outline-dark fa fa-comment border-secondary" type="button" id="button-addon2" onClick={(e) => {
+                  actions.commentaryPost(id, inputPost);
+                  comentRef.value='';
+                  } }></button>
               </div>
             </div>
           </div>

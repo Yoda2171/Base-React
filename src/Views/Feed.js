@@ -15,12 +15,6 @@ function Feed() {
 
   const history = useHistory();
   
-  const [inputPost, setInputPost] = useState("");
-  
-  const handleChangeCommentary = e => {
-    let valor = e.target.value;
-    setInputPost(valor);
-  }
   
   const handleChange = e => {
     let datos = state;
@@ -97,9 +91,8 @@ function Feed() {
                         image={"./img/post/" + index.image} 
                         photo={index.photo} 
                         name={index.name} 
-                        commentary={index.commentary} 
-                        onChange={handleChangeCommentary}
-                        onClickCommentary={ () => actions.commentaryPost(index.id, inputPost)}
+                        commentary={index.commentary} /* 
+                        onChange={handleChangeCommentary} */
                         />
                       );
                     }).reverse()
